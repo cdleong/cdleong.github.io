@@ -28,25 +28,33 @@ And yet, I loved her too, in a way. C++ was always high maintenance, but once yo
 We had a good relationship, C++ and I. But, without real passion, I suppose.
 
 #### Python
-Python, on the other hand came crashing into my life like a manic pixie dream girl from `random.choice(get_romance_movies())`. 
+Python, on the other hand came crashing into my life like a manic pixie dream girl from `random.choice(imdb_movies_df['genre']=="Romance")`. 
 
-[Everything is fun](https://xkcd.com/353/)! I want to try a new algorithm or technique? I can get it running (note: not necessarily working properly) in minutes. I want to solve problem _x_? It feels like with her, the solution is usually just
-```
+[Everything is fun](https://xkcd.com/353/)! 
+
+I want to try a new algorithm or technique? I can get it running (note: not necessarily working properly) in minutes. 
+
+I want to solve problem _x_? It feels like with Python, the solution is usually just
+```python
 import useful_library
 useful_library.solve_that_exact_problem_x()
 ```
 
 Fun example: 
-```
+```python
 # fizzbuzz to 1000 in Python
 from algorithms.strings import fizzbuzz as fb
 
 print(fb.fizzbuzz(1000))
 ```
 
-It's like having someone around who just... gets you. "Can you get me the, the thing", you say. And she hands you the thing you couldn't find the words for. "And here's the other thing", she says, beore you can even ask.
+"Can you get me the, the thing", you say. And she hands you the thing you couldn't find the words for. "And here's the other thing", she says, before you can even ask. We just... get each other in a way I've never had with a programming language before. 
 
-I'm passionately in love.
+It may not last forever. Next year, I might be raving about R, or Ruby, or some other language (I'm hearing some people talk about Kotlin...). 
+
+And I still have a place in my heart for Java, and even for C++. 
+
+But for me, for now, with Python... I'm in love.
 
 ### Contact me
 
