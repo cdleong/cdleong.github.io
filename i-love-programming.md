@@ -31,7 +31,7 @@ Python, on the other hand came crashing into my life like a manic pixie dream gi
 I want to try a new algorithm or technique? I can get it running (note: not necessarily working properly) in minutes. 
 
 I want to solve problem _x_? It feels like with Python, the solution is usually just
-```python
+``` python
 import useful_library
 useful_library.solve_that_exact_problem_x()
 ```
