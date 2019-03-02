@@ -20,7 +20,9 @@ Well, if you actually go and read the [Research Paper](https://arxiv.org/pdf/181
 
 > ![A figure showing an interpolation between faces and corresponding "anti-faces", taken from Nvidia's paper. The figure is labelled "figure 8", and has a lengthy text description beneath]({{ site.baseurl }}/images/finding_myself/anti-face.png  "anti-faces")
 
-I became deeply curious to try it myself. Could I generate... an **anti-me**? A version of myself, with all attributes flipped? What would she look like?
+I became deeply curious to try it myself. And, I found myself wondering... 
+
+> Could I generate... an **anti-me**? A version of myself, with all attributes flipped? And what would she look like?
 
 ### Finding Myself In Latent Space.
 
