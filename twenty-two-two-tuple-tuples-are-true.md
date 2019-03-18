@@ -18,8 +18,8 @@ if ((),()):
       If a tuple of tuples is True,
       are two tuples of tuples True too?
       Twenty-two two-tuple tuples are True,
-      if two tuples of tuples are True
+      if two tuples of tuples are True.
       """
       print(truth_of_twenty_two_tuples_of_tuples)
 ```
-[Give it a try yourself!](https://trinket.io/python/020da90155)
+[Give it a try yourself!](https://trinket.io/python/f3b1e1fa5e)
