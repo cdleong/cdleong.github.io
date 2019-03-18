@@ -22,3 +22,4 @@ if ((),()):
       """
       print(truth_of_twenty_two_tuples_of_tuples)
 ```
+[Give it a try yourself!](https://trinket.io/python/020da90155)
