@@ -18,6 +18,8 @@ Learning about meta-learning also amuses me. I wonder if there's any way I could
 
 [I love programming!]({{ site.baseurl }}/i-love-programming)
 
+[The Truth of Two-Tuple Tuples]({{ site.baseurl }}/twenty-two-two-tuple-tuples-are-true.md)
+
 ### Contact me
 
 I can be reached at [deeplycuriouscolin@gmail.com](mailto:deeplycuriouscolin@gmail.com)
