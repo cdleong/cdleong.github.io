@@ -33,10 +33,14 @@ This is done by feeding in a target picture for StyleGAN to try and match, then 
 If you don't know what those are, well, basically you start by feeding picking some arbitrary starting latent vector, and doing the following repeatedly:
 
 ```
-1. Nudge the latent vector just a bit in some direction. Maybe add some random small number to each latent.
+1. Nudge the latent vector just a bit in some direction. 
+(Maybe add some random small number to each latent.)
 2. Feed the new latent vector into the StyleGAN, and use that to generate a new picture. 
-3. Check if that new picture looks more similar to the target picture (this is what Frechet.
-4. If the new one looks more similar, that was a good nudge, and we're going the right direction. Next time, nudge it more like that!
+3. Check if that new picture looks more similar to the target picture 
+(this is what Frechet Inception Distance is for. It measures similarity)
+4. If the new one looks more similar, that was a good nudge, and we're going the right direction. 
+    Next time, nudge it more like that!
+   If not, pick a different direction.
 ```
 
 Do that until the new image looks really similar to the target image, and voila!
