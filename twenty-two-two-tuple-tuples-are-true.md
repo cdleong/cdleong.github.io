@@ -1,3 +1,9 @@
+---
+layout: page
+title: The Truth of Two-Tuple Tuples
+permalink: /the-truth-of-two-tuple-tuples/
+---
+
 ```python
 if ((),()):
   # if a tuple of tuples is True
