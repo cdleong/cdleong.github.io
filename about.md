@@ -18,7 +18,7 @@ Learning about meta-learning also amuses me. I wonder if there's any way I could
 
 [I love programming!]({{ site.baseurl }}/i-love-programming)
 
-[The Song of Twenty-Two Two-Tuple Tuples]({{ site.baseurl }}/the-song-of-the-twenty-two-two-tuple-tuple/)
+[The Song of The Twenty-Two-Two-Tuple Tuple]({{ site.baseurl }}/the-song-of-the-twenty-two-two-tuple-tuple/)
 
 ### Contact me
 

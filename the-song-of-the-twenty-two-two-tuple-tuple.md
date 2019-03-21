@@ -1,10 +1,10 @@
 ---
 layout: page
-title: The Song of Twenty-Two Two-Tuple Tuple
+title: The Song of The Twenty-Two-Two-Tuple Tuple
 permalink: /the-song-of-the-twenty-two-two-tuple-tuple/
 ---
 
-For your singing pleasure, I present the following Pythonic, syntactically correct, runnable limerick:
+For your singing pleasure, I present the following syntactically correct, runnable, Pythonic, tongue-twister and limerick:
 
 ```python
 # in Python, a non-empty tuple evaluates to true.
