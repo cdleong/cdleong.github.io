@@ -1,6 +1,6 @@
 ---
 layout: page
-title: The Song of The Twenty-Two-Two-Tuple Tuple
+title: The Song of The Twenty-Two-"Two-Tuples" Tuple
 permalink: /the-song-of-the-twenty-two-two-tuple-tuple/
 ---
 
@@ -31,10 +31,10 @@ if ((),()):
     if all(twenty_two_two_tuple_tuple):  
       # then we can make a limerick!
       song_of_the_twenty_two_two_tuple_tuple = """
-      If a tuple of tuples is True,
-      then two two-tuple tuples are too.
-      So a twenty-two-two-tuple tuple is True,
-      since a tuple of tuples is True.
+      If a "two-tuples" tuple is True,
+      then two "two-tuples" tuples are too.
+      So a twenty-two-"two-tuples" tuple is True,
+      since a "two-tuples" tuple is True.
       """
       print(song_of_the_twenty_two_two_tuple_tuple)
 ```
