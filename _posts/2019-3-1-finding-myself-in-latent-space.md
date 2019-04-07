@@ -127,7 +127,7 @@ Which is kind of interesting, really. Does this mean it can match literally anyt
 
 ### And that's all for now.
 
-Tune in next time, as we go _way_ too deep the age, gender, and smileyness... and then _keep going_!
+Tune in next time, as we go _way_ too deep into age, gender, and smileyness... and then _keep going_!
 
 Preview:
 <figure>
