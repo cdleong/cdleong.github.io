@@ -12,7 +12,7 @@ permalink: /about/
 
 A salutation to you!
 
-I'm Colin. I'm a curious guy, and I also like learning new things! Especially about AI and deep learning.
+I'm Colin. I like goofing around with AI and deep learning.
 
 Learning about meta-learning also amuses me. I wonder if there's any way I could learn how to learn about meta-learning better...
 
@@ -22,7 +22,7 @@ Learning about meta-learning also amuses me. I wonder if there's any way I could
 
 ### Contact me
 
-I can be reached at [deeplycuriouscolin@gmail.com](mailto:deeplycuriouscolin@gmail.com)
+I can be reached at [deeplygoofy@gmail.com](mailto:deeplygoofy@gmail.com)
 
 
 
