@@ -6,8 +6,7 @@ title: The Quest for the Anti-Me - Finding Myself in Latent Space
 <figure>
   <video src="{{ site.baseurl }}/images/finding_myself/11k_iterations_256x256_200ms_MG_4136_spedup.mp4" controls autoplay/>
 </figure>
-
-(Here's a video of the StyleGAN encoder in action. In this case, within 11,000 iterations, StyleGAN has pretty much nailed my face.)
+(A video of the StyleGAN encoder in action. In this case, within 11,000 iterations, StyleGAN has pretty much nailed my face.)
 
 ### StyleGANs and Anti-Faces
 Ever since I first came across [StyleGans](https://arxiv.org/abs/1812.04948), Nvidia's hot new image generator tech, I've been overcome with the desire to play around with it. 
