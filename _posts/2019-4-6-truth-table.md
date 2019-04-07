@@ -53,10 +53,10 @@ Note: this took _forever_ to do. I had to roll balls down hills for _hours_.
 
 Next time: Can we roll a ball down a hill more efficiently?
 
-![Gradient descent animation from "An overview of gradient descent optimization algorithms" by Ruder](http://ruder.io/content/images/2016/09/saddle_point_evaluation_optimizers.gif)
+![Gradient descent animation from "An overview of gradient descent optimization algorithms" by Alec Radford](http://ruder.io/content/images/2016/09/saddle_point_evaluation_optimizers.gif)
 
 
-(Image from ["An overview of gradient descent optimization algorithms"](http://ruder.io/optimizing-gradient-descent/index.html) by Sebastian Ruder)
+(Image from ["An overview of gradient descent optimization algorithms"](http://ruder.io/optimizing-gradient-descent/index.html) by Sebastian Ruder, who credits [Alec Radford](https://twitter.com/alecrad))
 
 <!-- No idea why this works, and nothing else does, but now I have a table so yay? -->
 <style>
