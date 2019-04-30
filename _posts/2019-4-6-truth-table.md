@@ -18,7 +18,7 @@ So, for example, you can take a whole bunch of latent vectors of people smiling,
 That new list of numbers describes (approximately) the "smiling/not-smiling" direction. So then you take that, and add it to a latent vector that describes someone's face, and get something like this:
 
 ![a]({{ site.baseurl }}/images/goofing_around/truth_table/teaser.png)
-(In this picture, from the original [Stylgan-Encoder repo by Puzer](https://github.com/Puzer/stylegan-encoder), Puzer has managed to find a latent direction that describes frowning/smiling. They then added and subtracted that latent direction to pictures of famous politicians. The original photos are down the center.)
+(In this picture, from the original [Stylegan-Encoder repo by Puzer](https://github.com/Puzer/stylegan-encoder), Puzer has managed to find a latent direction that describes frowning/smiling. They then added and subtracted that latent direction to pictures of famous politicians. The original photos are down the center.)
 
 I was wondering whether I'd be able to do anything like this myself, given the right pairs of pictures. I went out into a local park with my friend, and we took a set of 8 pictures...
 
