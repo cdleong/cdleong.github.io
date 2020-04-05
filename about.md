@@ -16,9 +16,11 @@ I'm Colin. I'm a very curious person, often reading articles or books, or tinker
 
 Learning about meta-learning also amuses me. I wonder if there's any way I could learn how to learn about meta-learning better...
 
-[I love programming!]({{ site.baseurl }}/i-love-programming)
+# Whimsy
+[I love programming!]({{ site.baseurl }}/i-love-programming) My love life with respect to programming languages.
 
-[The Song of The Twenty-Two-Two-Tuple Tuple]({{ site.baseurl }}/the-song-of-the-twenty-two-two-tuple-tuple/)
+[The Song of The True Twenty-Two-"Two-Tuples" Tuple]({{ site.baseurl }}/the-song-of-the-twenty-two-two-tuple-tuple/) A syntactically valid limerick, exploring a quirk of Pythonic truthiness.
+
 
 
 ### Acknowledgements
@@ -38,3 +40,5 @@ And yes, I do belive this is a rational belief to have. For more on why I trust 
 <iframe src="http://random-psalm.appspot.com/" width="100%" frameborder="0" allowfullscreen="allowfullscreen" sandbox></iframe>
 
 
+### Feedback
+[Tell me what you think of me](https://forms.gle/Hmod45m5fz4Ux6979).

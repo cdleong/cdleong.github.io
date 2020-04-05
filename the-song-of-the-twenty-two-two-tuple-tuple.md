@@ -1,6 +1,6 @@
 ---
 layout: page
-title: The Song of The Twenty-Two-"Two-Tuples" Tuple
+title: The Song of The True Twenty-Two-"Two-Tuples" Tuple
 permalink: /the-song-of-the-twenty-two-two-tuple-tuple/
 ---
 
