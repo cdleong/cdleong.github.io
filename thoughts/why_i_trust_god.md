@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Why I Trust God
-permalink: /why_i_trust_god/
+permalink: /thoughts/why_i_trust_god/
 ---
 
 I confess publicly here that Jesus Christ is my lord, and has saved me from my sin. I believe in my heart that he rose from the grave. i.e. I am a Christian. 
