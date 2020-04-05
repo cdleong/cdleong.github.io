@@ -2,7 +2,7 @@
 layout: post
 title: The Quest for the Anti-Me - Truth in Tables
 ---
-Hi, and welcome back to **_Deeply Goofy_!**
+Hi, and welcome back to **_Deeply Curious_!**
 We're still goofing around in Latent Space. Last time, I promised we'd "go _way_ too deep into age, gender, and smileyness... and then _keep going_!" That's still coming, but first, we must find fill a table, with truth!
 
 ### What's a Latent Direction?
