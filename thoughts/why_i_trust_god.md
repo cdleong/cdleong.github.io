@@ -42,7 +42,7 @@ Anyway, this is the fallacy fallacy. Even if I did have stupid reasons for a bel
 #### Do we know what the original Bible actually says?
 AKA "hasn't it been corrupted?" aka "hasn't it been translated from translations of translations etc.?" aka "didn't a secret council of Christian leaders edit the thing to make it how they like?"
 
-Short answer: haha no. 
+Short answer: Yes, actually! We do know what it said!
 
 Longer, more careful answer: I think that the more you study how the Bible actually came together the more fascinating, and downright amazing the story gets. As a computer scientist, I offer the following analogy. Say you're receiving a data file over a lossy communication stream. Say it's binary data, and every bit matters. And say the stream is so bad that one random bit out of a thousand gets flipped. Well, I think that if the other side just retransmitted the copy 100 times, I'd stand a pretty darn good chance of reconstructing every single bit of the original data.
 

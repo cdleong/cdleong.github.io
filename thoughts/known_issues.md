@@ -18,7 +18,7 @@ Over the years, there's been several cases where I have received feedback descri
 
 And in April 2020 (during the COVID-19 lockdown in Ohio) I received some candid feedback from a co-worker on this topic. They took offense at how I had criticised something and used this description.
 
-I suspect that the root of this ongoing issue has to do with miscommunication, or mismatch of communication styles. Pretty much every time I receive this sort of feedback I have been very surprised and taken aback. I didn't *think* I was smarter or more knowledgeable than others, in fact in some cases, phrasing I thought was humble was instead taken as proud. 
+I suspect that the root of this ongoing issue has to do with miscommunication, or mismatch of communication styles. Pretty much every time I receive this sort of feedback I have been very surprised and taken aback. I didn't *think* I was smarter or more knowledgeable than others. In one case I even tried specifically to phrase my words in a humble way, but it was taken as proud. 
 
 This strongly suggests a disconnect between my intentions, and perceptions of those intentions. 
 
