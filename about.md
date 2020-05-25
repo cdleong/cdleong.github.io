@@ -16,15 +16,30 @@ I'm Colin. I'm a very curious person, often reading articles or books, or tinker
 
 Learning about meta-learning also amuses me. I wonder if there's any way I could learn how to learn about meta-learning better...
 
+
+# Philosophy of the Blog.
+
+I'd like this to be a repository of cool and interesting things that I've found, as well as a place to publicly "think aloud" in a way that may be of use to myself and to others. I wish to live an "open-source" life, being very honest and open about my thoughts, inviting feedback, and holding a dialogue with the world. 
+
+To paraphrase [the apostle Paul](https://www.biblegateway.com/passage/?search=Romans+1%3A16&version=ESV), I am not ashamed of the gospel I believe in. Rather, because of how it has saved me, I wish to share it with others.
+
+And to quote Patrick Henry: "...in proportion to the magnitude of the subject ought to be the freedom of the debate".
+
+# Thoughts 
+* See [Known Issues]({{ site.baseurl }}/known_issues/) for a list of problems or flaws with me that I wish to improve. 
+* [Things God has Done]({{ site.baseurl }}/things_god_has_done/): God's done a lot for me. I record a few items here.
+* [Why I Trust God]({{ site.baseurl }}/thoughts/why_i_trust_god/): My journey of faith thus far. 
+* [Interesting Problems]({{ site.baseurl }}/thoughts/why_i_trust_god/): Important problems or interesting questions I find meaningful, and I'd like to help solve.
+
 # Whimsy
 [I love programming!]({{ site.baseurl }}/i-love-programming) My love life with respect to programming languages.
 
 [The Song of The True Twenty-Two-"Two-Tuples" Tuple]({{ site.baseurl }}/the-song-of-the-twenty-two-two-tuple-tuple/) A syntactically valid limerick, exploring a quirk of Pythonic truthiness.
 
-
-
 ### Acknowledgements
-This blog was inspired in large part by [AI Weirdness](http://aiweirdness.com). Have a look, it's delightful.
+This blog was originally inspired in large part by [AI Weirdness](http://aiweirdness.com). Have a look, it's delightful!
+
+For the structure and style I am inspired in large part by [gwern](https://www.gwern.net/About). His ideal of creating "stable long-term essays which improve over time" is fascinating, and I'd like to emulate it here.
 
 [XKCD](https://xkcd.com) has a special place in my part, especially the what-if series. My favorite is probably the one about the [Laser Pointer](https://what-if.xkcd.com/13/)
 
@@ -36,6 +51,7 @@ And yes, I do belive this is a rational belief to have. For more on why I trust 
 
 ### Apps and Projects
 
+#### Random Psalm
 I made a web app! [Visit here for a random psalm](http://random-psalm.appspot.com/)
 
 
