@@ -25,10 +25,22 @@ But looking back over the past decade as I write this in May 2020, I note very s
 
 I believe that all of these positive effects can be traced, ultimately, to my faith in God. 
 
+## Victory over Pornography
+Probably the biggest one I can point to is the breaking of a long-running and active addiction to [internet pornography](https://en.wikipedia.org/wiki/Pornography_addiction). 
+
+Pornography is a destructive and psychologically-warping thing. For a long time in my life, I struggled and struggled with it. I [hated and loved it](https://en.wikipedia.org/wiki/Gollum), and I hated and loved myself too. I despaired of ever breaking its hold, and I didn't want to let it go. But somehow, through a rather long and painful process, the power of it over my life has largely gone away. I know _I_ can't take much credit for this, if any! So I give that credit to God. Without his help it would still have hold of me.
+
+If you struggle with something like this, the best advice I can give you is to get help from sincere, Bible-believing friends. And to seek God above all things. It's not about *avoiding sin*, it's about pursuing righteousness. You should know, also, that it really will be a long and difficult journey. 
+
+What's more, I still, to this day, have to remain on guard against it. To borrow a way of speaking from Alcoholics Anonymous... "I _am_ an addict, and it has been years since my pornography". I guess I might quibble a little with this, since the Bible teaches that ["if anyone is in Christ he is a new Creation"](https://www.biblegateway.com/passage/?search=2+Corinthians+5%3A17&version=ESV). I am not defined by, or identified by sin, but by being "in Christ"! But the point of the AA saying is that the fight continues for a lifetime, and I have found this to be true for my addiction as well. I pray that God will continue to help me fight!
+
+## Other examples:
+Of course, pornography is far from the only thing God has worked on in my life. Other examples of positive life-change that I attribute to God's mercy and grace include:
+
 ### Motivation for productive endeavors. 
 My dramatic increases in productivity in the 2018-2019 period came not because I wanted to "become more productive", but because I wanted to stop sinning by wasting my life. 
 
-### Kindness, somehow displacing 
+### Kindness, somehow displacing selfishness
 I credit God with my (apparent) improvements in the realm of kindness to others. Previously, I did not really consider kindness to strangers to be worth my time. Now, I find myself having a reputation for kindness, and somehow actually wanting to be kind to people, even if they won't provide me any benefit in return. It is very strange, and a bit uncanny. I'm not naturally this way at all... how did this happen? The only one with motive, opportunity and means to enact this change was God.
 
 ### Hope and Joy, displacing Chronic Anxiety
