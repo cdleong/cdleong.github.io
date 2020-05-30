@@ -26,7 +26,7 @@ It may also have to do with _modes_ of communication. For example, people commun
 
 However, I don't wish to dismiss the possibility that I have a flawed understanding of myself. And even if it is purely down to miscommunication, there may be some ways I can improve that communication. So I think this is worth keeping an eye on.
 
-Possibly related: I have previously noticed myself giving a reflexive incredulous reaction to discovering that people don't know "obvious" facts. This has made definitely caused people to feel that I thought they were dumb.
+Possibly related: I have previously noticed myself giving a reflexive incredulous reaction to discovering that people don't know "obvious" facts. This has definitely caused people to feel that I thought they were dumb.
 
 #### Corrective actions:
 * As a TA, publicly apologized to class and invited feedback. 
