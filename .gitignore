@@ -4,7 +4,10 @@ _site
 .jekyll-metadata
 .bundle
 .sass-cache
+.jekyll-cache
+*.swp
 Gemfile
 Gemfile.lock
 node_modules
 package.json
+unready/
