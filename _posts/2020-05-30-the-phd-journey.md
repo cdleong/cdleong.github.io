@@ -1,6 +1,7 @@
 ---
 layout: post
 title: The PhD Journey
+permalink: /phd-journey/
 ---
 
 So, I've now begun a PhD in machine translation at the University of Dayton. I have it on [good authority](https://ruder.io/10-tips-for-research-and-a-phd/) that blogging about the process can be of great help. This is the start of that! As usual, the idea is for it to be a stable, long-term essay that gets better over time.
@@ -37,7 +38,7 @@ It's a sort of catch-22. For Machine Translation techniques to work in the tradi
 But with _modern_ techniques, people are starting to find ways around this limitation.
 
 #### [LASER](https://engineering.fb.com/ai-research/laser-multilingual-sentence-embeddings/) 
-is particularly inspiring to me. Their "Universal, language-agnostic sentence embeddings" essentially allow you to exploit the knowledge gained in one language, and easily adapt that to other languages. 
+There are many examples of exciting research, but LASER is one that was particularly inspiring to me. Their "Universal, language-agnostic sentence embeddings" essentially allow you to exploit the knowledge gained in one language, and easily adapt that to other languages. 
 
 > "The tool maps a sentence in any language to a point in a high-dimensional space with the goal that the same statement in any language will end up in the same neighborhood."
 
@@ -47,8 +48,17 @@ I'm also very fascinated by the fact that they managed to recreate language fami
 
 Perhaps this can be extended further, to \<small jungle tribe language>?
 
+Going forward, I plan to collect resources [here]({{ site.baseurl }}/translation-and-bible/)
+
 ### Getting out of the translator's way
-The other big problem with using machine translation for assisting Bible translators is that these techniques can be very clunky. If a translator sitting in a cafe with a crappy laptop and terrible wi-fi can't get it to run, he _will not use it_
+The other big problem with using machine translation for assisting Bible translators is that these techniques can be very clunky. If a translator sitting in a cafe with a crappy laptop and terrible wi-fi can't get it to run, they _will not use it_, no matter how cool it is. Furthermore, if the amount of effort required to get it working _well_ is too high, it won't be worth their time. 
+
+However, recent years have seen significant advances in: 
+#### shrinking the machine learning models. 
+For example, ["A highly efficient, real-time text-to-speech system deployed on CPUs"](https://ai.facebook.com/blog/a-highly-efficient-real-time-text-to-speech-system-deployed-on-cpus/), where Facebook gets a text-to-speech neural net to run fast on a CPU. That sounds much more realistic. And maybe we could use it to collect some data to seed our model with...?
+
+#### models that can keep learning as you go. 
+The dream would be: as you translate more and more of the Bible, the system gets better and better at helping you. And with techniques like ["Transfer Learning in Multilingual Neural Machine Translation with Dynamic Vocabulary"](https://arxiv.org/abs/1811.01137), we're getting closer to that ideal.
 
 ## Resources on doing a PhD Successfully:
 I'm going to be collecting here any links that seem helpful for the _process_ of doing the PhD. Meta-research, so to speak. 
