@@ -24,12 +24,19 @@ Currently, the main questions I'd like to answer are:
 * [Resources](#resources): What code, data, etc. are currently available that we can start playing with?
 * [People](#people): Who else is working in this field? Would they like to join forces? 
 
+## Subproblems that have showed up in the literature: 
+
+### The Hubness Problem
+To put it simply, sometimes in really high-dimensional space, everything is nearest neighbors to certain "hubs". Because of this "hubness problem", you cannot so easily just calculate a [word embedding](https://jalammar.github.io/illustrated-word2vec/) in one language and simply find the nearest neighbor in another language. 
+
+For example, this comes up in [Bilingual Lexicon Induction through Unsupervised Machine Translation](https://arxiv.org/abs/1907.10761) by Artetxe et al, where they attempt to tackle it. 
+
 # Bible Translation Software
 Currently, there is almost no deployed usage of Machine Translation in the Bible Translation field. However, there has been increased interest in looking into this, and I've found several people who may be interested in collaboration. 
 
 Current projects do make use of various computer software tools. In order to make a practical, usable solution we will need to understand what is actually in use and how it is being used.
 
-## [Paratext ](https://paratext.org/)
+## [Paratext](https://paratext.org/)
 Apparently one of the primary tools used by Bible translators in our current era, Paratext [provides features](https://paratext.org/features/) for "development and checking of new Bible translation texts, or revisions to existing texts." Including wordlists, a tool to ensure consistent use of Biblical terms, and the ability to view multiple translations in parallel. 
 
 # Low-Resource Machine Translation
@@ -59,6 +66,7 @@ People such as the Youtuber going by "Matt vs Japan" have been known to openly d
 
 Or, for example, see ["Polyglots’ Brains – Neuroscience and Language Learning - Eryk Walczak"](https://youtu.be/MkWCjDmPaHQ).
 
+
 # Resources
 
 ## Data
@@ -81,12 +89,40 @@ Working code from the [Facebook AI Research Sequence-to-Sequence (fairseq) Toolk
 ### [LASER (Language-Agnostic SEntence Representations) toolkit](https://github.com/facebookresearch/LASER)
 A "library to calculate and use multilingual sentence embeddings." I previously discussed this in [my post on the PHD]({{ site.baseurl }}/phd-journey/). But the code and many models are freely available for use. 
 
+### Artetxe libraries
+Various libraries created by Mikel Artetxe, including...
+* [Monoses](https://github.com/artetxem/monoses), "an open source implementation of our unsupervised statistical machine translation system"
+* [VecMap](https://github.com/artetxem/vecmap), "an open source implementation of our framework to learn cross-lingual word embedding mappings"
+
 # People
 Who is working in this, or related fields? Would they like to join forces?
 
 
 ## Bible Translation specifically
 Who is working with the Bible, or Bible translation? 
+
+### [All the Word](https://alltheword.org/about/)
+This is one of the organizations involved in developing modern [Bible Translation Software](#bible-translation-software). They do not use neural or statistical machine translation, instead preferring to develop a "a linguistically based rule system." 
+
+Their [QA Section](https://alltheword.org/qa/) describes their reasons for doing this. 
+* Higher quality translations. They measure this in terms of percentage increases in translator productivity. However, given the [enormous](https://mse238blog.stanford.edu/2017/08/jchoi8/machine-learning-transforms-google-translate-overnight/) [advances](https://kottke.org/16/12/ai-hemingways-the-snows-of-kilimanjaro) in perceived translation quality by systems such as Google Translate, I wonder whether there might still be room for improvement? After all, "Whether the leopard had what the demand at that altitude, there is no that nobody explained." was made by a rule-based system.
+* No need for training corpora. This is a good point, as the need for training data is one of the biggest problems with NMT.
+* Ease of adaptation to related languages. Tweaking rules for related dialects is apparently quite easy. In contrast, they say that "the statistics produced by a statistical system can't be modified for a related language; each new language requires its own training corpora.". I wonder whether that's still true with modern transfer learning techniques?
+* "Rule based systems give linguists a very good starting point for a publishable grammar". This is an interesting point I had not considered. However, I wonder whether it wouldn't be possible to back that sort of information out of a good enough trained model somehow? 
+
+There are many other interesting facts in this QA, providing a lot of food for thought on the practical realities of translation. 
+
+For example, they have apparently manually created a heavily-annotated "semantic representation" of every word, phrase, and clause in the Bible. This seems like it would be a very interesting dataset to play with. 
+
+Also, they have an interesting breakdown of the current process for translating to a new language. 
+* 40-50 hours to learn the software itself. 
+* 150 more hours to do a Grammar Introduction, for an experienced software user. In one example, it took 30 two-hour meetings.  
+* 30-50 more hours to work through a non-biblical story about preventing eye infections. Now, you're ready to begin working on a short book of the Bible, say, Ruth. 
+* 200 or more hours to do Ruth, counting in meetins and work outside of meetings. 
+
+So this would be the thing to try and improve. For example, could we, after the Grammar Introduction phase, begin seeding a NMT system, and use it to start generating candidate translations? Or could we begin suggesting candidate grammar rules for the software to present to the user? 
+
+Overally they seem quite experienced in the field. I've been in contact with some of them, and begun some interesting discussions!
 
 ### Sami Liedes
 As of 2018, this person wrote ["Recent developments and ideas on the Bible Neural Machine Translation problem"](https://samiliedes.wordpress.com/2018/08/28/recent-developments-and-ideas-on-the-bible-neural-machine-translation-problem/), which contains some interesting thoughts on the problem setting, and potential ideas for tackling it. However, his blog has not been updated in the two years since then. 
@@ -110,3 +146,13 @@ A very well-known researcher, especially for his many interesting and popular bl
 One of the foremost publishers of relevant research to this task, he has written extensively on unsupervised and low-resource machine translation. 
 * [Google Scholar page](https://scholar.google.com/citations?user=N5InzP8AAAAJ&hl=en)
 * [Semantic Scholar page](https://www.semanticscholar.org/author/Mikel-Artetxe/2347956)
+
+
+
+# Leads, TODOs, and unanswered questions
+* What is VecMap? https://www.aclweb.org/anthology/P18-1073/, and is it useful? Is there code? (edit: yes, https://github.com/artetxem/vecmap)
+* Wikiextractor, eh? https://github.com/attardi/wikiextractor [used by Artetxe](https://arxiv.org/pdf/1907.10761.pdf). Can we use this to scrape, say, Simple English Wikipedia? 
+* FastAlign https://www.aclweb.org/anthology/N13-1073/ [used by Artetxe for word alignment](https://arxiv.org/pdf/1907.10761.pdf). Worth looking into? Code: https://github.com/clab/fast_align
+* Monoses, "an open source implementation of our unsupervised statistical machine translation system" by Artetxe et al. https://github.com/artetxem/monoses
+* Could one back out a "publishable grammar" from a language model, e.g. using techniques based on [this paper](https://arxiv.org/abs/1905.05950)
+* AllTheWord.org has created Semantic Representations of every word, phrase and clause in the Bible. And they have existing translations from this. Hmmmmmm... will they let us play with those? 
