@@ -20,6 +20,7 @@ The two biggest problems are:
 Currently, the main questions I'd like to answer are:
 * [Bible Translation Software](#bible-translation-software): What's the current state of Bible Translation software, and how can it be improved most practically? 
 * [Low-Resource MT](#low-resource-machine-translation): How can we get better quality translations with very little starting data? 
+* [Deployable AI](#deployable-ai): Our likely users might be on an old laptop in a jungle. How can we make this tech usable for them?
 * [Polyglots: Efficient Language Learners](#polyglots-efficient-language-learners): Some people can learn many languages in a short amount of time with little data. Can we use their techniques to improve ours?
 * [Resources](#resources): What code, data, etc. are currently available that we can start playing with?
 * [People](#people): Who else is working in this field? Would they like to join forces? 
@@ -56,6 +57,12 @@ Often, you have data or models for other languages than the one you wish to tran
 Often, it's actually pretty easy to gather data, the hard part is labelling it into the form a computer machine learning system can learn from. Are there ways we can reduce the burden of creating training data? Are there ways we can get our algorithms to learn from the "raw" data?
 
 For example, could we simply record people speaking, and get the machine learning system to start noticing patterns in the audio?
+
+
+# Deployable AI
+How can we setup our system so that our users can actually make use of it? Techniques that minimize the need for expensive dedicated hardware, more efficient chips, smaller models, less GPU-intensive training, and so on. 
+
+For example, the startup Neural Magic [has developed algorithms to run trained models efficiently on old hardware](https://www.technologyreview.com/2020/06/18/1003989/ai-deep-learning-startup-neural-magic-uses-cpu-not-gpu/). This can apparently run well on CPUs, not GPUs.
 
 # Polyglots: Efficient Language Learners?
 Stealing ideas from nature is a time-honored tradition. Engineers have for many centuries, looked at how the natural world solved a problem, then copied its homework shamelessly. 
@@ -147,9 +154,8 @@ One of the foremost publishers of relevant research to this task, he has written
 * [Google Scholar page](https://scholar.google.com/citations?user=N5InzP8AAAAJ&hl=en)
 * [Semantic Scholar page](https://www.semanticscholar.org/author/Mikel-Artetxe/2347956)
 
-
-
 # Leads, TODOs, and unanswered questions
+Collecting quick thoughts and questions for later review
 * What is VecMap? https://www.aclweb.org/anthology/P18-1073/, and is it useful? Is there code? (edit: yes, https://github.com/artetxem/vecmap)
 * Wikiextractor, eh? https://github.com/attardi/wikiextractor [used by Artetxe](https://arxiv.org/pdf/1907.10761.pdf). Can we use this to scrape, say, Simple English Wikipedia? 
 * FastAlign https://www.aclweb.org/anthology/N13-1073/ [used by Artetxe for word alignment](https://arxiv.org/pdf/1907.10761.pdf). Worth looking into? Code: https://github.com/clab/fast_align
