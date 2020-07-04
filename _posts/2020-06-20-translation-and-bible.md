@@ -76,6 +76,22 @@ Or, for example, see ["Polyglots’ Brains – Neuroscience and Language Learnin
 
 # Resources
 
+## Other Resource Collections
+
+### [CMU LTI Low Resource NLP Bootcamp 2020](https://github.com/neubig/lowresource-nlp-bootcamp-2020)
+"a page for a low-resource natural language and speech processing bootcamp held by the Carnegie Mellon University Language Technologies Institute in May 2020."
+* [spaCy tutorial](https://spacy.io/usage/spacy-101)
+* tutorial using [epitran](https://github.com/dmort27/epitran): "A library and tool for transliterating orthographic text as IPA (International Phonetic Alphabet)."
+* [Universal Dependencies (UD) Treebank](https://universaldependencies.org/): "a framework for consistent annotation of grammar (parts of speech, morphological features, and syntactic dependencies) across different human languages."
+* [fast_align](https://github.com/clab/fast_align) tutorial. "a simple, fast, unsupervised word aligner."
+* [JoeyNMT](https://joeynmt.readthedocs.io/en/latest/tutorial.html) tutorial with [Latvian-English data](http://www.statmt.org/wmt17/translation-task.html)
+* [tutorial on creating an interlinear gloss using Leipzig Glossing Rules](https://www.eva.mpg.de/lingua/pdf/Glossing-Rules.pdf)
+* [learning of word representations using fastText](https://fasttext.cc/docs/en/unsupervised-tutorial.html) tutorial, as well as "using them for simple text classification, and finding similar words".
+* Multilingual BERT usage. 
+* [Kaldi Speech Recognition Toolkit](https://github.com/kaldi-asr/kaldi) tutorial
+
+
+
 ## Data
 ### [OPUS parallel Bible dataset](http://opus.nlpl.eu/)
 One of the many [Open Parallel Corpus](http://opus.nlpl.eu/) datasets, contains the Bible, in parallel, over 100 languages, in various formats suitable for machine learning. What's more, their [github link](https://github.com/christos-c/bible-corpus) provides resources for processing and training with it, and has other updates as well. 
@@ -90,13 +106,22 @@ Just one example, [The New Testament in the North Tanna Language of Vanuatu](htt
 ### [OpenNMT](https://opennmt.net/)
 A very mature and well-developed codebase/ecosystem for neural machine translation. Probably the place to start.
 
+## [JoeyNMT](https://joeynmt.readthedocs.io/en/latest/index.html)
+* "a minimalist neural machine translation toolkit for educational purposes."
+* [nice starter notebook here](https://github.com/masakhane-io/masakhane-mt/blob/master/starter_notebook.ipynb), using opus data.
+* [github](https://github.com/joeynmt/joeynmt)
+
 ### [MBART](https://github.com/pytorch/fairseq/tree/master/examples/mbart)
 Working code from the [Facebook AI Research Sequence-to-Sequence (fairseq) Toolkit](https://github.com/pytorch/fairseq). Full sequence-to-sequence model, and therefore easy to use for pretraining models. 
 
 ### [LASER (Language-Agnostic SEntence Representations) toolkit](https://github.com/facebookresearch/LASER)
 A "library to calculate and use multilingual sentence embeddings." I previously discussed this in [my post on the PHD]({{ site.baseurl }}/phd-journey/). But the code and many models are freely available for use. 
 
-### Artetxe libraries
+### [Kaldi](https://kaldi-asr.org/)
+[Github link](https://github.com/kaldi-asr/kaldi)
+"Kaldi is a toolkit for speech recognition written in C++ and licensed under the Apache License v2.0. Kaldi is intended for use by speech recognition researchers."
+
+### the Artetxe libraries
 Various libraries created by Mikel Artetxe, including...
 * [Monoses](https://github.com/artetxem/monoses), "an open source implementation of our unsupervised statistical machine translation system"
 * [VecMap](https://github.com/artetxem/vecmap), "an open source implementation of our framework to learn cross-lingual word embedding mappings"
@@ -154,6 +179,13 @@ One of the foremost publishers of relevant research to this task, he has written
 * [Google Scholar page](https://scholar.google.com/citations?user=N5InzP8AAAAJ&hl=en)
 * [Semantic Scholar page](https://www.semanticscholar.org/author/Mikel-Artetxe/2347956)
 
+# Experiments I'd like to try
+
+## Jargon/Dialect translator? 
+* Take a word-aligner such as fast_align or Monoses, and translate from, say the KJV to the ESV. 
+* Datasets: Wikipedia vs. Simple English Wikipedia?
+
+
 # Leads, TODOs, and unanswered questions
 Collecting quick thoughts and questions for later review
 * What is VecMap? https://www.aclweb.org/anthology/P18-1073/, and is it useful? Is there code? (edit: yes, https://github.com/artetxem/vecmap)
@@ -162,3 +194,14 @@ Collecting quick thoughts and questions for later review
 * Monoses, "an open source implementation of our unsupervised statistical machine translation system" by Artetxe et al. https://github.com/artetxem/monoses
 * Could one back out a "publishable grammar" from a language model, e.g. using techniques based on [this paper](https://arxiv.org/abs/1905.05950)
 * AllTheWord.org has created Semantic Representations of every word, phrase and clause in the Bible. And they have existing translations from this. Hmmmmmm... will they let us play with those? 
+* [epitran](https://github.com/dmort27/epitran) is a library for G2P, or grapheme to phoneme. Could be a building block in an unsupervised data collection pipeline system of some sort. 
+* Pig Latin translator? Take a massive English corpus. Generate the Pig Latin version. Translate. 
+* The videogame Heaven's Gate 
+
+## The Holy Grail of Low-Resource Translation: Unsupervised Universal Translator.
+While we're aiming high, can we get a machine to learn languages with minimal help?
+
+Perhaps something like...
+* Drop a microphone down.
+* Collect lots of data. 
+* Have it start noticing patterns in the data on its own, while also easily accepting input from the humans involved?
