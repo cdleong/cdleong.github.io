@@ -183,6 +183,7 @@ One of the foremost publishers of relevant research to this task, he has written
 
 ## Jargon/Dialect translator with Simple Wikipedia?
 * Take a word-aligner such as fast_align or Monoses, and translate from, say the KJV to the ESV. 
+
 ### Datasets 
 * Wikipedia vs. Simple English Wikipedia?
 * Bible in Basic English
@@ -190,6 +191,15 @@ One of the foremost publishers of relevant research to this task, he has written
 ### Code: 
 * We could use [wikiextractor](https://github.com/attardi/wikiextractor) with the Cirrus Data dumps: https://dumps.wikimedia.org/other/cirrussearch/20200420/ simplewiki is an option.
 * Then we calculate some word embeddings with fasttext? 
+
+
+## The Holy Grail of Low-Resource Translation: Unsupervised Universal Translator.
+While we're aiming high, can we get a machine to learn languages with minimal help?
+
+Perhaps something like...
+* Drop a microphone down.
+* Collect lots of data. 
+* Have it start noticing patterns in the data on its own, while also easily accepting input from the humans involved?
 
 
 # Leads, TODOs, and unanswered questions
@@ -201,13 +211,7 @@ Collecting quick thoughts and questions for later review
 * Could one back out a "publishable grammar" from a language model, e.g. using techniques based on [this paper](https://arxiv.org/abs/1905.05950)
 * AllTheWord.org has created Semantic Representations of every word, phrase and clause in the Bible. And they have existing translations from this. Hmmmmmm... will they let us play with those? 
 * [epitran](https://github.com/dmort27/epitran) is a library for G2P, or grapheme to phoneme. Could be a building block in an unsupervised data collection pipeline system of some sort. 
-* Pig Latin translator? Take a massive English corpus. Generate the Pig Latin version. Translate. 
-* The videogame Heaven's Gate 
-
-## The Holy Grail of Low-Resource Translation: Unsupervised Universal Translator.
-While we're aiming high, can we get a machine to learn languages with minimal help?
-
-Perhaps something like...
-* Drop a microphone down.
-* Collect lots of data. 
-* Have it start noticing patterns in the data on its own, while also easily accepting input from the humans involved?
+* Generate my own artificial language? e.g. Pig Latin translator? Take a massive English corpus. Generate the Pig Latin version. Translate. 
+* The videogame Heaven's Gate involves learning a language entirely from written text. 
+* Can a I frame my audio problem as a computer vision problem? 
+* Can I frame my language model learning as a reinforcement learning problem? "ask smart questions to give me a correct grammar". 
