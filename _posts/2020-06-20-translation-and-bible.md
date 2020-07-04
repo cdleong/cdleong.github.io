@@ -181,9 +181,15 @@ One of the foremost publishers of relevant research to this task, he has written
 
 # Experiments I'd like to try
 
-## Jargon/Dialect translator? 
+## Jargon/Dialect translator with Simple Wikipedia?
 * Take a word-aligner such as fast_align or Monoses, and translate from, say the KJV to the ESV. 
-* Datasets: Wikipedia vs. Simple English Wikipedia?
+### Datasets 
+* Wikipedia vs. Simple English Wikipedia?
+* Bible in Basic English
+
+### Code: 
+* We could use [wikiextractor](https://github.com/attardi/wikiextractor) with the Cirrus Data dumps: https://dumps.wikimedia.org/other/cirrussearch/20200420/ simplewiki is an option.
+* Then we calculate some word embeddings with fasttext? 
 
 
 # Leads, TODOs, and unanswered questions
