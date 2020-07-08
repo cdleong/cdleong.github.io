@@ -140,7 +140,7 @@ Their [QA Section](https://alltheword.org/qa/) describes their reasons for doing
 * Higher quality translations. They measure this in terms of percentage increases in translator productivity. However, given the [enormous](https://mse238blog.stanford.edu/2017/08/jchoi8/machine-learning-transforms-google-translate-overnight/) [advances](https://kottke.org/16/12/ai-hemingways-the-snows-of-kilimanjaro) in perceived translation quality by systems such as Google Translate, I wonder whether there might still be room for improvement? After all, "Whether the leopard had what the demand at that altitude, there is no that nobody explained." was made by a rule-based system.
 * No need for training corpora. This is a good point, as the need for training data is one of the biggest problems with NMT.
 * Ease of adaptation to related languages. Tweaking rules for related dialects is apparently quite easy. In contrast, they say that "the statistics produced by a statistical system can't be modified for a related language; each new language requires its own training corpora.". I wonder whether that's still true with modern transfer learning techniques?
-* "Rule based systems give linguists a very good starting point for a publishable grammar". This is an interesting point I had not considered. However, I wonder whether it wouldn't be possible to back that sort of information out of a good enough trained model somehow? 
+* "Rule based systems give linguists a very good starting point for a publishable grammar". This is an interesting point I had not considered. However, I wonder whether it wouldn't be possible to back that sort of information out of a good enough trained model somehow? (NOTE: potentially yes, according to ["Finding Universal Grammatical Relations in Multilingual BERT"](https://arxiv.org/abs/2005.04511))
 
 There are many other interesting facts in this QA, providing a lot of food for thought on the practical realities of translation. 
 
@@ -215,3 +215,4 @@ Collecting quick thoughts and questions for later review
 * The videogame Heaven's Gate involves learning a language entirely from written text. 
 * Can a I frame my audio problem as a computer vision problem? 
 * Can I frame my language model learning as a reinforcement learning problem? "ask smart questions to give me a correct grammar". 
+* TODO: look into https://arxiv.org/abs/2005.04511, for potential application to "back out a grammar" problem. 
