@@ -208,7 +208,7 @@ Collecting quick thoughts and questions for later review
 * Wikiextractor, eh? https://github.com/attardi/wikiextractor [used by Artetxe](https://arxiv.org/pdf/1907.10761.pdf). Can we use this to scrape, say, Simple English Wikipedia? 
 * FastAlign https://www.aclweb.org/anthology/N13-1073/ [used by Artetxe for word alignment](https://arxiv.org/pdf/1907.10761.pdf). Worth looking into? Code: https://github.com/clab/fast_align
 * Monoses, "an open source implementation of our unsupervised statistical machine translation system" by Artetxe et al. https://github.com/artetxem/monoses
-* Could one back out a "publishable grammar" from a language model, e.g. using techniques based on [this paper](https://arxiv.org/abs/1905.05950)
+* Could one back out a "publishable grammar" from a language model, e.g. using techniques based on [this paper](https://arxiv.org/abs/1905.05950). See also https://arxiv.org/abs/2005.04511
 * AllTheWord.org has created Semantic Representations of every word, phrase and clause in the Bible. And they have existing translations from this. Hmmmmmm... will they let us play with those? 
 * [epitran](https://github.com/dmort27/epitran) is a library for G2P, or grapheme to phoneme. Could be a building block in an unsupervised data collection pipeline system of some sort. 
 * Generate my own artificial language? e.g. Pig Latin translator? Take a massive English corpus. Generate the Pig Latin version. Translate. 
