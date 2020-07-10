@@ -58,6 +58,11 @@ Often, it's actually pretty easy to gather data, the hard part is labelling it i
 
 For example, could we simply record people speaking, and get the machine learning system to start noticing patterns in the audio?
 
+### [Unsupervised Multimodal Neural Machine Translation with Pseudo Visual Pivoting](https://arxiv.org/abs/2005.03119)
+Very novel and clever method based on the fact that people speak different languages but are looking at a similar visual world. 
+
+What's interesting here is that all you need is image captions to provide some weak supervision. Once you've got image captions in different languages, you can use those images to guide the embedding and alignment process. And it's much easier to get people to caption some pictures than to get them to translate text.
+
 
 # Deployable AI
 How can we setup our system so that our users can actually make use of it? Techniques that minimize the need for expensive dedicated hardware, more efficient chips, smaller models, less GPU-intensive training, and so on. 
