@@ -69,6 +69,8 @@ How can we setup our system so that our users can actually make use of it? Techn
 
 For example, the startup Neural Magic [has developed algorithms to run trained models efficiently on old hardware](https://www.technologyreview.com/2020/06/18/1003989/ai-deep-learning-startup-neural-magic-uses-cpu-not-gpu/). This can apparently run well on CPUs, not GPUs.
 
+* [XtremeDistil: Multi-stage Distillation for Massive Multilingual Models ](https://github.com/MSR-LIT/XtremeDistil) provides another option, namely "distilling" a large and complex model like mBERT down into something lightweight, while still giving you most of the same performance. 
+
 # Polyglots: Efficient Language Learners?
 Stealing ideas from nature is a time-honored tradition. Engineers have for many centuries, looked at how the natural world solved a problem, then copied its homework shamelessly. 
 
