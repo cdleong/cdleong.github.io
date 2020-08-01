@@ -186,6 +186,11 @@ One of the foremost publishers of relevant research to this task, he has written
 * [Google Scholar page](https://scholar.google.com/citations?user=N5InzP8AAAAJ&hl=en)
 * [Semantic Scholar page](https://www.semanticscholar.org/author/Mikel-Artetxe/2347956)
 
+### [Masakhane project](https://www.masakhane.io/)
+Machine translation for African Languages. They're done a lot of research in the realm of low-resource translation. 
+* [masakhane-mt](https://github.com/masakhane-io/masakhane-mt) is their github repo for machine translation. 
+
+
 # Experiments I'd like to try
 
 ## Jargon/Dialect translator with Simple Wikipedia?
@@ -222,3 +227,5 @@ Collecting quick thoughts and questions for later review
 * The videogame Heaven's Gate involves learning a language entirely from written text. 
 * Can a I frame my audio problem as a computer vision problem? 
 * Can I frame my language model learning as a reinforcement learning problem? "ask smart questions to give me a correct grammar". 
+* TODO: https://github.com/masakhane-io/masakhane-mt/blob/master/MT4LRL.md has a lot of interesting items, broken down into different scenarios based on what data is available. 
+* TODO: look more into Apertium, which is a good way to start a RBMT project up. https://apertium.org/index.eng.html
