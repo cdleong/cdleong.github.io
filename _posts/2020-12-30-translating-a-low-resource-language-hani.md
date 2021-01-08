@@ -44,14 +44,14 @@ However, the corpus is not very large.
 It is, however, easily usable in NLP libraries, for example via the NLTK's "udhr2" corpus, or [Hugging Face Datasets](https://huggingface.co/datasets/udhr). Alternatively they can be simply [downloaded directly from the UDHR In Unicode project](https://unicode.org/udhr/index.html)
 
 ### 51 Hani stories
-The largest and best data source I found was "51 Hani Stories", by Bai Bipo and Paul Lewis, which is available from Amazon [here](https://smile.amazon.com/Hani-Stories-Paul-Bibo-Lewis/dp/9744800151/). I managed to get a digital copy from a private source. 
+The largest and best data source I found was "51 Hani Stories", by Bai Bibo and Paul Lewis, which is available from Amazon [here](https://smile.amazon.com/Hani-Stories-Paul-Bibo-Lewis/dp/9744800151/). I managed to get a digital copy from a private source. 
 
 A quick note on Bai Bibo: Following the Chinese convention, the surname is written first: Bai. Also, it is apparently the case that his Hani name is Piubo, of which "Bibo" is a Chinese transliteration. 
 
 This was the data source I used for my first iteration of the Hani NMT model. 
 
 ### Hani-English, English-Hani dictionary
-Also highly helpful has been an electronic copy of the Hani-English, English-Hani dictionary. I managed to pick up a copy on Amazon [here](https://www.amazon.com/Hani-English-English-Hani-Dictionary-Lewis/dp/0710305648). Using the Kindle for PC app, this is fully searchable and very useful for checking individual words. This is also by Paul Lewis and Bai Bipo. 
+Also highly helpful has been an electronic copy of the Hani-English, English-Hani dictionary. I managed to pick up a copy on Amazon [here](https://www.amazon.com/Hani-English-English-Hani-Dictionary-Lewis/dp/0710305648). Using the Kindle for PC app, this is fully searchable and very useful for checking individual words. This is also by Paul Lewis and Bai Bibo. 
 
 ## Other Hani Resources
 * [Wikipedia article](https://en.wikipedia.org/wiki/Hani_language)
