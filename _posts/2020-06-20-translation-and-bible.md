@@ -71,6 +71,12 @@ For example, the startup Neural Magic [has developed algorithms to run trained m
 
 * [XtremeDistil: Multi-stage Distillation for Massive Multilingual Models](https://www.microsoft.com/en-us/research/publication/xtremedistil/), provides another option, namely "distilling" a large and complex model like mBERT down into something lightweight, while still giving you most of the same performance. [github repo here](https://github.com/MSR-LIT/XtremeDistil)
 
+## Cell Phones!
+Modern cell phone technology provides significant opportunities here. Not everyone has a laptop, but smart devices are ubiquitous even in poor or remote areas. We could target Android phones for data collection, or even run translation software. 
+
+## Web Apps
+Depending on internet or data access, it may even be possible to connect to online services such as Mozilla's [Common Voice](https://commonvoice.mozilla.org/) data collection interface, or cloud-hosted translation models. This would make it trivial to deploy to cell phones. This is less likely to be available in remote areas with poor infrastructure, but as these become more developed it may be possible. Who knows? Maybe [Starlink](https://en.wikipedia.org/wiki/Starlink) will make it easy. 
+
 # Polyglots: Efficient Language Learners?
 Stealing ideas from nature is a time-honored tradition. Engineers have for many centuries, looked at how the natural world solved a problem, then copied its homework shamelessly. 
 
