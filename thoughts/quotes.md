@@ -1,3 +1,8 @@
+---
+layout: page
+title: About
+permalink: /thoughts/quotes/
+---
 # Quotes I like!
 
 > Advice is a dangerous gift, even from the wise to the wise, and all courses may run ill. 
