@@ -1,9 +1,8 @@
 ---
 layout: page
-title: About
+title: Quotes I Like
 permalink: /thoughts/quotes/
 ---
-# Quotes I like!
 
 > Advice is a dangerous gift, even from the wise to the wise, and all courses may run ill. 
 [source](https://www.goodreads.com/quotes/97225-advice-is-a-dangerous-gift-even-from-the-wise-to)
