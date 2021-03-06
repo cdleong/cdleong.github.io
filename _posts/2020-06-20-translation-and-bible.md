@@ -11,9 +11,31 @@ The mission is simple: Translate the Bible into every human language.
 Stretch goal: Using the Bible as a seed for translation algorithms, translate all human knowledge into every language.
 
 # Problems to solve: 
-The two biggest problems are:
-* How can we translate into the language of a tribe with low or zero amounts of data?
+There's a variety of problems to solve.
+* How can we translate into the language of a group with low or zero amounts of data?
 * How can we field-deploy our solutions in a way that's actually practical to use?
+
+## Bible Translation Quality and Evaluation
+The problem of quality is especially important for Bible Translation. How can we ensure that the translation is correct? That the meaning, the internal thoughts and intent of the author, match the translated text? We want the reader to "get" what the author wanted them to get. 
+
+Biblical scholars train for years, and often go through many rounds of revision and editing and consultation, to ensure that their translations meet high standards of quality.
+
+For example, they often cute the CANAC acronym: translations must be 
+* Clear
+* Accurate
+* Natural
+* Authoritative
+* Consistent (in translation of terminology)
+
+Purely automated methods are nowhere near this level, even for high resource languages! For now, it seems more realistic to use translation technology to assist and support human translators.
+
+# How Can We Quantify the Quality?
+We know we want translations to be high quality, but how can we measure that? There isn't an automated CANAC score! How can we measure the quality of our translation numerically, so that we can improve it? It turns out this is a hot area of research in the NLP field. A few examples:
+* [Tangled up in BLEU: Reevaluating the Evaluation of Automatic Machine Translation Evaluation Metrics](https://arxiv.org/abs/2006.06264) discusses the problem, and suggests some alternative metrics.
+* [Seven recommendations for machine translation evaluation](https://bricksdont.github.io/posts/2020/12/seven-recommendations-for-mt-evaluation/) talks about methodology for translation metrics and human evaluation.
+* [Participatory Research for Low-resourced Machine Translation: A Case Study in African Languages](https://arxiv.org/abs/2010.02353) finds that, especially for low resource languages, human evaluation is very important. It seems the existing metrics don't quite cut it!
+
+There seems to be a great need for ways to capture and quantify the degree where the source meaning actually matches the translation.
 
 # Questions to Answer
 
