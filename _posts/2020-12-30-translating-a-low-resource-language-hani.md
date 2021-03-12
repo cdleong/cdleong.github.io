@@ -171,10 +171,23 @@ JoeyNMT automatically calculated test scores at the end of training, using the "
 
 mean: 0.215, standard deviation: 0.008366600265
 
+## Why is it so poor? 
+Simply put, there's not enough data. 
+
 ## Future work
 * Try again with different hyperparameters? 
 * Incorporate more data! UDHR for example, would be a useful test set at least, perhaps allowing us to put more back in as training. 
 * Attempt to incorporate the Hani-English, English-Hani dictionary in some way? 
+* Perhaps we could analyze the dataset a bit more! My friend Dr. Eric Jackson suggests that maybe there's not enough lexical coverage and overlap, e.g. the test set might have words that don't occur in train.  What's the lexical overlap between train/val/test? 
+* Would different splits work better?
+* As a sort of larger-question, is there some way we can analyze the quality of a dataset before running the GPU training? Besides lexical overlap, are there other things we can check? Like, does it cover a good proportion of the morphemes or words in the language? What proportion of the words in the dictionary show up in the set? etc. 
+
+### Data Augmentation? 
+It may be possible to use various tricks to augment the dataset. For example, swapping out words in sentences. Rather than "the frog said", make another version of the sentence with "the cow said". And so on. 
+
+See [CS11-737 Multilingual NLP Data-based Strategies to Low-resource MT](http://demo.clab.cs.cmu.edu/11737fa20/slides/multiling-08-mtaugmentation.pdf) for more details. Some of the possiblities include: 
+* Augmenting with back-translation. We have piles of English, Chinese data. Can we create some synthetic Hani? 
+* Use some of the reordering code from [Handling Syntactic Divergence in Low-resource Machine Translation](https://github.com/violet-zct/pytorch-reorder-nmt)
 
 # Acknowledgements
 * [Jade Abbot](https://www.jabbott.io/) for helping me to realize the value of a concrete goal. 
