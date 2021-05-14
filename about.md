@@ -61,15 +61,19 @@ I made a web app! [Visit here for a random psalm](http://random-psalm.appspot.co
 Alternatively, let's see if this works: 
 <p onload="myFunction()">Click the button to get a link to a random Psalm</p>
 
+<!-- uses https://www.w3schools.com/jsref/jsref_random.asp as basis -->
 <button onclick="myFunction()">New Random Psalm</button>
-<p id="demo"></p>
-
+<p id="psalm"></p>
 <script>
 function myFunction() {
-  var x = document.getElementById("demo")
-  x.innerHTML = "<a href=https://www.esv.org/Psalm+"+Math.floor((Math.random() * 150) + 1) +">Random Psalm</a>";
+  var x = document.getElementById("psalm");
+  psalm_num = Math.floor((Math.random() * 150) + 1);
+  x.innerHTML = "<a href=https://www.esv.org/Psalm+"+psalm_num +">Random Psalm is: "+ psalm_num +"</a>";
 }
 </script>
+
+<script>myFunction()</script>
+
 
 
 ### Feedback
