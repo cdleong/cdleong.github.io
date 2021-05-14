@@ -58,6 +58,19 @@ And yes, I do belive this is a rational belief to have. For more on why I trust 
 #### Random Psalm
 I made a web app! [Visit here for a random psalm](http://random-psalm.appspot.com/)
 
+Alternatively, let's see if this works: 
+<p onload="myFunction()">Click the button to get a link to a random Psalm</p>
+
+<button onclick="myFunction()">New Random Psalm</button>
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("demo")
+  x.innerHTML = "<a href=https://www.esv.org/Psalm+"+Math.floor((Math.random() * 150) + 1) +">Random Psalm</a>";
+}
+</script>
+
 
 ### Feedback
 [Tell me what you think of me](https://forms.gle/Hmod45m5fz4Ux6979).
