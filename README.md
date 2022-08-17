@@ -1,4 +1,32 @@
+# Colin's notes: 
+
+2022-8-15: The Github Pages site requires "Jekyll". All the below is from long ago. Today I'm following https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll, which involves [installing Jekyll](https://jekyllrb.com/docs/installation/ubuntu/)
+
+
+note: it changes your .bashrc thus: 
+
+```bash
+#######################
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+```
+
+
+
+## Ruby stuff
+
+Tutorial on gems: https://www.tutorialspoint.com/ruby/ruby_gems.htm
+* `gem check`
+* `gem cleanup`
+
+
+
 > March, 2016: If you're on an old version of Jekyll Now and run into a) build warnings or b) syntax highlighting issues caused by [Jekyll 3 and GitHub Pages updates](https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0), just :sparkles:[update your _config.yml](https://github.com/barryclark/jekyll-now/pull/445/files):sparkles: and you'll be set!
+
+
+
+
 
 # Jekyll Now
 
