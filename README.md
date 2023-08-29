@@ -2,7 +2,6 @@
 
 2022-8-15: The Github Pages site requires "Jekyll". All the below is from long ago. Today I'm following https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll, which involves [installing Jekyll](https://jekyllrb.com/docs/installation/ubuntu/)
 
-
 note: it changes your .bashrc thus: 
 
 ```bash
@@ -14,12 +13,23 @@ export PATH="$HOME/gems/bin:$PATH"
 
 
 
+
+2023-08-29: Following [the guide mentioned in 2022 on Windows 11](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll)
+1. Ruby: installed Ruby with [Windows Downloader](https://rubyinstaller.org/downloads/), as well as Ruby Devkit. Selected all three MSYS2 installation options: base, system update, and "MSYS2 and MINGW development toolchains". Apparently `ridk enable` is a thing
+2. Bundler: https://bundler.io say: "Any modern distribution of Ruby comes with bundler installed by default" 
+3. searched in Windows for "ruby" and found "start command prompt with Ruby". 
+4. Used that, navigated to my website folder and ran `bundle`, which said that it is running Bundle 2.4.10, but that my lockfile was generated with 2.3.20, so it would install that version of bundler and restart. It fetched and installed various items such as `webrick` and various `jekyll`
+5. Then I did `bundle update github-pages`
+6. Got a weird error from Liquid gem where it was saying that there was an ["undefined method tainted"](https://github.com/github/pages-gem/issues/859). Manually edited all mentions in Gemfile.lock from Liquid 4.0.3 to 4.04, then did bundle install again.
+7. Now `bundle exec jekyll serve` works
+
+
+
 ## Ruby stuff
 
 Tutorial on gems: https://www.tutorialspoint.com/ruby/ruby_gems.htm
 * `gem check`
 * `gem cleanup`
-
 
 
 > March, 2016: If you're on an old version of Jekyll Now and run into a) build warnings or b) syntax highlighting issues caused by [Jekyll 3 and GitHub Pages updates](https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0), just :sparkles:[update your _config.yml](https://github.com/barryclark/jekyll-now/pull/445/files):sparkles: and you'll be set!
