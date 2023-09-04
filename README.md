@@ -24,6 +24,9 @@ export PATH="$HOME/gems/bin:$PATH"
 7. Now `bundle exec jekyll serve` works
 
 
+https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet 
+
+
 
 ## Ruby stuff
 

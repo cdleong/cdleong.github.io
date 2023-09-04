@@ -53,3 +53,8 @@ Oh. What _do_ you have? (To be continued!)
 
 ### Can we use audio data?
 
+
+
+## Changelog
+2023-08-29: Article begun, many sections still TODO. Hoping to add in historical things like transfer learning, but also move some of the experimental approach sections to "Tatanka" article. Also focus the article on a cost estimate for all the languages.
+
