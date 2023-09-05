@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Using the Whole Tatanka (Or, I Don't Have A Massive Pile of Text, How Can We Use ALL Of What We've Got?)
+title: Using the Whole Tatanka (Or, I Don't Have A Massive Pile of Text, How Can We Use ALL the Data We've Got?)
 ---
 ![Hani Storybook Sample]({{ site.baseurl }}/images/tatanka/whole-tatanka.png) 
 In the 1990 film _Dances with Wolves_, Kevin Costner's character encounters a group of people whose language he does not speak. In order to start establishing a common vocabulary, he uses his body to mime the shape and behavior of a buffalo/bison. Recognizing this, they teach him their word for the animal ("Tatanka"). Our computational approaches to language learning miss out on this kind of thing, relying on massive quantities of mostly text, and leaving much of the data we do have unused. When I've spoken with actual linguists working on smaller languages, I've found that the they often _have_ data, it's just not in a form that computers can use easily, distributed across many formats and files. How can we "use the _whole Tatanka?_", not wasting the data that is available?
@@ -19,6 +19,8 @@ Here let's start listing out nontraditional sources of language knowledge, other
 In fact, let's expand on that a bit! Here's a few examples of visual information humans can use in learning a language, but computers would currently have _no_ _clue_ what to do with:
 * You see an ad on the side of a bus with someone enjoying a nice beverage. Without even knowing the language, you can know that the words on the ad have something to do with the concept of, like, "you should buy this nice beverage". If you know the script at all, you can probably guess which word is a proper noun, the name of the beverage. 
 * Gestures and body language. Someone points at a tree and says "Shu".
+
+One interesting paper that I often think of is [Unsupervised Multimodal Neural Machine Translation with Pseudo Visual Pivoting (Huang et al., ACL 2020)](https://aclanthology.org/2020.acl-main.731), where they use image captioners in both languages to generate "parallel data" by feeding the same image in to both captioners.
 
 ### The Buying Things At The Market Problem
 One strategy for learning a language - you can make educated guesses based on conversational context. You go to the market and notice there's someone selling a fish. Someone else walks over and they take turns speaking. The newcomer points at a fish and says something with an intonation that sounds like a question. The other one says something in response. The newcomer nods, and pulls out some money. 
