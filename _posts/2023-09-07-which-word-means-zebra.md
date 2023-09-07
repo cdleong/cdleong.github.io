@@ -76,6 +76,7 @@ However we end up doing it, I think unlocking this image/language associational 
 * [Unsupervised Multimodal Neural Machine Translation with Pseudo Visual Pivoting](https://aclanthology.org/2020.acl-main.731/), which uses image captioning models to generate artificial data to train machine translation algorithms. Could we leverage a similar process with existing captions?
 * [Aligning language models to follow instructions](https://openai.com/research/instruction-following), OpenAI's article explaining the process of training an "instruct-style" model. 
 * [Introducing Aya: An Open Science Initiative to Accelerate Multilingual AI Progress](https://txt.cohere.com/aya-multilingual/), a project to train a highly multilingual "instruct-style" model. 
+* [NLLB-CLIP](https://twitter.com/visheratin/status/1699789363759231177): CLIP in 201 languages!
 
 #### TODO
 
