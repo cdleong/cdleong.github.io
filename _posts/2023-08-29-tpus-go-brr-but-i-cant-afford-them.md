@@ -1,6 +1,6 @@
 ---
 layout: post
-title: TPUS Go BRRR... But I Can't Afford Them! (Or, Can Computers Learn Languages Without Massive Money?)
+title: TPUS Go BRRR... But I Don't Have Data! (Or, Can We Train Language Models Without Billions of Tokens?)
 ---
 
 (Insert "bitter lesson" meme here) So, you want to build language technology to help people. Say a machine translator, so you can help folks to communicate, to read, to share knowledge... ideally you would like your computer to learn new languages! In fact, maybe you want it to learn _all_ the languages! It turns out this is very hard and _expensive_, let's look at why that is, and how to attack it. 
@@ -41,7 +41,7 @@ This isn't as insurmountable as it might seem, for several reasons.
 **Cost**: `$$$$`, You don't need so much expert knowledge any more, but gathering all the translations can be hard! 
 
 ### Examples
-* JoeyNMT, on which my previous blog posts were based, is a good example. It expects every sentence in language A (the "source") to be properly lined up with a corresponding translated sentence in language B (the "target"). Then once you have that data, you can train a model that goes from language A to language B, and only that direction.
+* [JoeyNMT](https://github.com/joeynmt/joeynmt), on which my previous blog posts were based, is a good example. It expects every sentence in language A (the "source") to be properly lined up with a corresponding translated sentence in language B (the "target"). Then once you have that data, you can train a model that goes from language A to language B, and only that direction.
 
 ## Can We Just Get A Big Pile of Text In Each Language? (Masked Language Modeling and Encoder/Decoder models)
 
@@ -51,8 +51,9 @@ Then we've also learned that you can train big multilingual models on data from 
 
 ### Examples: 
 * Most of them nowadays. mBERT for example. 
+* https://huggingface.co/training-cluster lets you estimate costs for training LLMs. Costs _start_ at $57k for the smallest, on the least data
 
-## Oh... but I don't have piles of monolingual text.
+## Oh... but I don't have piles of monolingual text in my language.
 
 Oh. What _do_ you have? (To be continued!)
 
