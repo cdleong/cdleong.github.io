@@ -11,6 +11,30 @@ Prerequisites: you will be working with video data, so you will need:
 
 I actually had some success getting things running in Colab Pro, but of course there's plenty of issues with that. 
 
+<!-- TODO: TOC here? https://heymichellemac.com/table-of-contents-jekyll https://stackoverflow.com/questions/9602936/how-to-create-a-table-of-contents-to-jekyll-blog-post https://stackoverflow.com/questions/18244417/how-do-i-create-some-kind-of-table-of-content-in-github-wiki-->
+
+
+
+# A Coder's Guide to SLT
+Truth be told, I am writing this to be the guide I wish I had - the guide that a coder needs, in order to Do Science within the realm of Sign Language to Text.
+
+- [A Coder's Guide to SLT](#a-coders-guide-to-slt)
+  - [Codebases](#codebases)
+    - [Resources that seem replicable/usable](#resources-that-seem-replicableusable)
+    - [Needs more effort to get running.](#needs-more-effort-to-get-running)
+    - [Not yet fully assessed.](#not-yet-fully-assessed)
+    - [Out of date?](#out-of-date)
+    - [Tricks for getting old code working](#tricks-for-getting-old-code-working)
+  - [Good places to look](#good-places-to-look)
+    - [research.sign.mt - best place for SLT background](#researchsignmt---best-place-for-slt-background)
+    - [sign.mt and sign-language-processing github orgs](#signmt-and-sign-language-processing-github-orgs)
+    - [👋 Sign Translate Wiki](#-sign-translate-wiki)
+    - [WMT Shared Tasks](#wmt-shared-tasks)
+      - [WMT-SLT22](#wmt-slt22)
+      - [WMT-SLT23](#wmt-slt23)
+    - [PapersWithCode](#paperswithcode)
+
+
 ## Codebases
 I personally like having some code to work with, instead of having to code things from scratch. Of course, Sign Language Processing is a developing field. Much of what exists out there is research code. So getting it running isn't always easy. I went ahead and took a crack at some of them, results below. Mainly what I was looking for was:
 1. How recently maintained/updated is this? If it's been a long time, it will be harder to get running. 
@@ -108,6 +132,7 @@ The Workshop on Machine Translation had two Shared Tasks on Sign Language Transl
 
 #### WMT-SLT23
 Code: The 2023 Shared Task has a ["Tools" page linking to several repos for baseline systems](https://www.wmt-slt.com/tools)
+
 [Findings](https://aclanthology.org/2023.wmt-1.4/)
 
 
