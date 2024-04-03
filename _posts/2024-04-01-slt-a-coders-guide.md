@@ -1,25 +1,39 @@
 ---
 layout: post
-title: A Coder's Guide to Sign Language Translation in 2024
+title: A Coder's Guide to Sign Language Translation Research in 2024
 ---
-![My Name is Colin]({{ site.baseurl }}/images/slt_for_coders/self_intro_asl.gif) ([`MY`](https://www.handspeak.com/word/1448/) [`NAME`](https://www.handspeak.com/word/1464/) [`C-O-L-I-N`](https://www.handspeak.com/learn/408/), aka "My name is Colin")
-So, it's 2024, you want to try your hand (haha) at sign language translation! Not recognizing _finger-spelling_ in static images, you want to do full-on _translation_: videos come in with someone signing, and full sentences come out the other side in a spoken language. Where does one even start? Here's a few places to begin! An opinionated guide to Sign Language Translation for coders.
+![My Name is Colin]({{ site.baseurl }}/images/slt_for_coders/self_intro_asl.gif) ([`MY`](https://www.handspeak.com/word/1448/) [`NAME`](https://www.handspeak.com/word/1464/) [`C-O-L-I-N`](https://www.handspeak.com/learn/408/), aka "My name is Colin" in [ASL](https://www.ethnologue.com/language/ase/), though I flubbed the "N" a bit)
+So, it's 2024, and AI is cool, and you want to try your hand (haha) at sign language translation! Not recognizing _finger-spelling_ in static images, you want to do full-on _translation_: videos come in with someone signing in one of the [many sign languages that are out there](https://www.ethnologue.com/subgroup/2/), and full sentences come out the other side in some spoken language. Where does one even start? Here's some notes and starting from a coder's perspective, focusing on what seems the most viable and pragmatic from a coding standpoint.
 
-Prerequisites: you will be working with video data, so you will need:
+About me: I am from a primarily computer-vision and low-resource NLP background but am not a member of any Deaf community and my attempts to learn a sign language are thus far quite limited. So my perspective quite likely has many gaps, limitations and biases. Read accordingly! But I want to learn humbly, and share what I've learned, and maybe be of service to others. Thus this post!
 
-* LOTS of hard drive space.
-* LOTS of RAM.
-
-I actually had some success getting things running in Colab Pro, but of course there's plenty of issues with that.
+**NOTE: These are my own informal (and often incomplete) notes/thoughts on this subject, from a coder's perspective primarily. See ["Sign Language Processing"](https://research.sign.mt/) by Moryossef, Amit and Goldberg, Yoav for a much more well-researched and professional guide, and [Systemic Biases in Sign Language AI Research: A Deaf-Led Call to Reevaluate Research Agendas](https://arxiv.org/abs/2403.02563) for a review from the perspective of researchers who know much better than me. Mistakes are my own, if I've messed something up, or you have any suggestions, please let me know [here](https://forms.gle/E3U6zibEzJVRMfr86)!**
 
 <!-- TODO: TOC here? https://heymichellemac.com/table-of-contents-jekyll https://stackoverflow.com/questions/9602936/how-to-create-a-table-of-contents-to-jekyll-blog-post https://stackoverflow.com/questions/18244417/how-do-i-create-some-kind-of-table-of-content-in-github-wiki-->
 
 ## A Coder's Guide to SLT (for me)
 
-Truth be told, I am writing this to be the guide I wish I had - the guide that a coder needs, in order to Do Science within the realm of Sign Language to Text. Nevertheless I welcome feedback/suggestions!
+Truth be told, I am writing this to be the guide I wish I had - the guide that a coder needs, in order to Do Science within the realm of Sign Language to Text. Nevertheless, [I welcome feedback/suggestions]((https://forms.gle/E3U6zibEzJVRMfr86))!
+
+Hardware Prerequisites: you will likely be working with video data, so you will need:
+
+* LOTS of hard drive space.
+* LOTS of RAM.
+
+Don't panic, though! Even ithout these, your SL research may require some creativity in order to workaround these issues, but you need not let that discourage you. See [Sebastian Ruder's blog post "NLP Research in the Era of LLMs"](https://newsletter.ruder.io/p/nlp-research-in-the-era-of-llms?utm_campaign=post&utm_medium=web) for a few low-compute inspirations, for example.
+
+I actually had _some_ success getting things running in Colab Pro, but of course there's plenty of issues with that too. Anyway...
 <!-- TOC created with VSCode Markdown all in one extension -->
 - [A Coder's Guide to SLT (for me)](#a-coders-guide-to-slt-for-me)
-- [Codebases](#codebases)
+- [tl;dr](#tldr)
+- [The Problem: Challenges for Sign Language Translation](#the-problem-challenges-for-sign-language-translation)
+  - [Sign Languages are Natural Languages, Natural Language Processing is Hard](#sign-languages-are-natural-languages-natural-language-processing-is-hard)
+  - [Sign Languages are Visual, Spatial, Simultaneous, and Nonlinear](#sign-languages-are-visual-spatial-simultaneous-and-nonlinear)
+  - [Sign Language Data is hard to work with, computationally](#sign-language-data-is-hard-to-work-with-computationally)
+  - [Sign Language Datasets are Hard To Make, there are not so many as text](#sign-language-datasets-are-hard-to-make-there-are-not-so-many-as-text)
+  - [Sign Language Translation Research in 2024 is the Wild West... in 1861](#sign-language-translation-research-in-2024-is-the-wild-west-in-1861)
+  - [Sign Languages are real languages used by real people and real communities](#sign-languages-are-real-languages-used-by-real-people-and-real-communities)
+- [What Codebases are out there?](#what-codebases-are-out-there)
   - [SLT Resources that seem replicable/usable](#slt-resources-that-seem-replicableusable)
     - [Sign Language Datasets](#sign-language-datasets)
     - [Two-Stream Network for Sign Language Recognition and Translation, NeurIPS2022](#two-stream-network-for-sign-language-recognition-and-translation-neurips2022)
@@ -68,9 +82,163 @@ Truth be told, I am writing this to be the guide I wish I had - the guide that a
     - [Indian Sign Language Recognition Using Classical And Machine Learning Techniques A Review (2023)](#indian-sign-language-recognition-using-classical-and-machine-learning-techniques-a-review-2023)
     - [Quantitative Survey of the State of the Art in Sign Language Recognition (2020)](#quantitative-survey-of-the-state-of-the-art-in-sign-language-recognition-2020)
 
-## Codebases
+## tl;dr
 
-I personally like having some code to work with, instead of having to code things from scratch. Of course, Sign Language Processing is a developing field. Much of what exists out there is research code. So getting it running isn't always easy. I went ahead and took a crack at some of them, results below. Mainly what I was looking for was:
+Currently, my advice to past-me would be:
+
+1. Read [this](https://research.sign.mt/) to learn about the state of the field, and [this](https://arxiv.org/abs/2403.02563) and [this](https://signon-project.eu/wp-content/uploads/2023/12/White-Paper-Sign-Language-Technology-FINAL.pdf) to get some important perspective on what research to even do, and how to do it right.
+2. Join [this slack channel](https://join.slack.com/t/signlanguager-kgn3800/shared_invite/zt-2fywilz3k-h_nctcijICnqoAPAfnNd~A) to ask questions.
+3. _Only then_ go to the [codebases](#what-codebases-are-out-there) section below and have a go at whatever seems most viable.
+4. Use [this library for datasets](https://github.com/sign-language-processing/datasets).
+
+Read on for more details.
+
+## The Problem: Challenges for Sign Language Translation
+
+There's a few things that make Sign Language Translation a difficult problem, especially from my perspective coming from the machine translation and computer vision background.
+
+### Sign Languages are Natural Languages, Natural Language Processing is Hard
+
+It may seem like a redundant statement, a Profound Insight Into the Obvious. But the fact that Sign Languages _are languages_ makes it really difficult to create a good translation system. With something like hand-gesture recognition or pose estimation or object recognition, you can get good results without a lot of context.
+
+But these are _natural languages_. Which means they have all the incredible complexities that the field Linguistics revels and delights in. Phonetics, Phonology, Morphology, Lexicology, Syntax, Semantics, Pragmatics... languages are complex and beautiful and so, so hard to fully describe.
+
+With _languages_ you have _grammar_. One part of the sentence affects the other part of the sentence. The word "it" in "the dog couldn't cross the street because it was too wide" refers to something different than if you said "...because it was too tired". That matters, especially when translating into some other language with yet another grammar and syntax.
+
+With languages you have _morphology_. Words and signs can change their form, or be modified by other ones. You might have combinations of signs that change the meaning or form of others. Like how in English you have suffixes or affixes like "-ing" or "-er", e.g. "teach" plus "-er" is "teacher". Well, in American Sign Language you can [sign "TEACH" and then a version of "PERSON" to mean "teacher"](https://www.lifeprint.com/asl101/pages-signs/t/teacher.htm). Translating that as "teach person" would not really capture the meaning right!
+
+And then there's things like idioms, and proper nouns or named entities, and sometimes little one-off things which don't fit the typical pattern of a language, which you just need to sometimes memorize and use. Languages are fascinating, beautiful, and deeply complicated.
+
+If you want a really deep dive, have a read of [this textbook](https://www.cambridge.org/core/books/sign-language-and-linguistic-universals/3DCD779D499F59838FBC2FC01C0092BC), pretty much the seminal work on Sign Languages and their linguistics.
+
+To really translate any language properly, you would need to be able to take all these things into account! We struggle to do this, even for spoken languages, recorded with text!
+
+**Implications:**
+
+* Like any natural language, with a sign language we would like to have some way to capture the context of the whole phrase or sentence, and ideally the whole conversation. Single-frame methods just won't do.
+* We would also like to have some way to understand and take into account the wider patterns of the language. How words combine, how certain words are used typically... grammar and idioms and expressions and morphology and even more. Which means for any particular language, we need to have a representative sample of language as a whole, and somehow encode that knowledge into our translation method.
+
+### Sign Languages are Visual, Spatial, Simultaneous, and Nonlinear
+
+To say that Sign Languages are Visual is another Profoundly Obvious Statement. And at first that might not seem such a difficult thing. After all, computer vision is getting very, very good these days! We can, sometimes at hundreds of frames per second:
+
+* Classify objects into thousands of categories.
+* Segment videos for self-driving cars, identifying where the road is, where the people are, and so on.
+* Identify the position of someone's hands.
+* Track and recognize faces.
+* ...[and many more tasks!](https://paperswithcode.com/methods/area/computer-vision)
+
+But here's just a few of the complications that make this a challenging problem from a computer vision perspective:
+
+* "Spatial Referencing". For example, in ASL, you can point at a location in space and articulate a sign, maybe something like "mother". And then later in the conversation, you point there, and people know you're referring to "mother". And you literally can just do something like: make the sign for ASK, and then physically move it from that location towards yourself to communicate "mother asked me". So now your method needs to be able to track abstract locations in physical space.
+* Pointing at things: "pointing" isn't the precise linguistic term or anything, but it's perfectly allowed in ASL to, say, sign ["CUP"](https://www.lifeprint.com/asl101/pages-signs/c/cup.htm) with one hand, and _point_ at a cup with another hand, and communicate thusly "_that_ cup". So now your method needs to be able to recognize (a) pointing at things, and (b) classify and localize _arbitrary objects_.
+  * Yes, CUP is listed in that link as a two-handed sign. Yes, it's still possible, you modify the sign to do this. No, that's not in most of the dictionaries or datasets, though you might find things like this in corpora that show real conversations in a culturally Deaf community. 
+    * But even then it might be hard, because they're recorded in a studio or a lab, etc. For example the [DGS Corpus](https://www.sign-lang.uni-hamburg.de/meinedgs/ling/start-name_de.html), where they're sitting in a mostly empty room.
+    * [Here's one from SpreadTheSign](https://media.spreadthesign.com/video/mp4/13/93806.mp4) translated as "that is a pretty mousepad", where they change the dominant handshape to refer to an object, but since there's not actually a mousepad in the room they have to introduce the referent in space first. Presumably if there was one actually sitting there they could just point at it. (thanks to Amit Moryossef for referring me to this).
+      * Oh, there's versions in other SLs [here](https://www.spreadthesign.com/en.us-to-es.es/sentence/9764/esa-almohadilla-para-raton-es-muy-bonita/?q=mouse+pad).
+* Simultaneity: just considering the hands and head and face, there's about 4 things to pay attention to at the same time. Meanings of signs can be modified by facial expressions, or head nods, or where someone is looking. This is one of the ways that sign languages are able to commmunicate the same amount of information per unit of time as spoken languages do.
+* Nonlinearity: Because of all the simultaneity, the multiple different things changing/moving at the same time, it is... challenging to try and represent SL as a linear sequence of writing or symbols, meaning that if your idea is to just transcribe it to some sequence and dump _that_ into an existing NLP method, well... it might not work as well as you hoped. I mean, how would you transcribe the "that cup" example, even? Write some symbol for "that" as a superscript on top of "CUP" to show they're at the same time? Essentially you have to have multiple "tracks" of symbols for all the different body parts involved.
+  * [Sutton SignWriting](https://www.sutton-signwriting.io/) might be the closest? It encodes positions and movements of various body parts. It's not really for writing down any specific sign language, it seems you can think of this as the sign language equivalent of writing down phonetic symbols in IPA.
+
+**Implications:**
+
+* Definitely remember that Sign Languages are not text. Any method that works great for text will likely need modifications.
+* Spend some time thinking about methods, and especially representations, that can deal multiple things going on at once simultaneously. Multi-object tracking algorithms maybe?
+* Think about ways for your method to consider the spatial context of the whole scene. The banana on the table, the position in the air where someone fingerspelled a name, the places people stand, and then shift their body... all of that.
+
+### Sign Language Data is hard to work with, computationally
+
+When you are trying to do sign language processing you have to deal with some fundamental trade-offs which are just difficult to handle.
+
+* If you use raw videos, they are _huge_. Often tens or hundreds of Gigabytes. They take hundreds of times as much RAM and hard drive space as a text dataset with the same number of sentences.
+  * They take hours to download and fill your hard drive up to bursting.
+  * Your standard Google Colab notebook will crash just from trying to load the data into memory if you're not careful.
+  * Your standard Transformer model's memory usage goes up quadratically with context length. If you try to load in hundreds of video frames, it will choke and your GPU may spontaneously combust. [Though many folks are working on that](https://arxiv.org/abs/2402.02244).
+* If you strip out information, you, well, lose subtleties. Having a wireframe skeleton showing the pose/positions you might miss things like: where are they looking? Are they making a happy face or a sad face?
+
+**Implications:**
+
+* It would be nice to make the representation you pick [as simple as possible, but not simpler!](https://quoteinvestigator.com/2011/05/13/einstein-simple/). Smaller formats are easier to work wish, easier to process, easier to share. But lose information. Think about what you are losing!
+
+### Sign Language Datasets are Hard To Make, there are not so many as text
+
+To make a spoken-language (e.g. Swahili, English, Thai) dataset you can do things like...
+
+* Scan a printed book or document.
+* Scrape a website or social media.
+* Re-format a Bible translation and/or supplementary materials.
+* Get some volunteers who know the language and how to write it, to just type some things up.
+* Record some volunteers who speak the language and write down what they said.
+
+There's tools for all of these things. Segmenters, dedupers, tokenizers, you name it. Text is easy to work with, easy to store. You can have thousands of sentences in one compressed file, small enough to email it. And the text is anonymous. Once you've typed the words down you can pull out any private or identifying info then you're pretty much set. Not that there's not a million and one ways to do this unethically. Just ask the [African Language NLP community at Masakhane](https://www.masakhane.io/community) about all the... how to put this nicely, the methods they felt did not really help their communities?
+
+(If you're looking for a positive and inspiring example, Masakhane's participatory research practices might make for an encouraging read, by the way! For example [Participatory Research for Low-resourced Machine Translation: A Case Study in African Languages](https://aclanthology.org/2020.findings-emnlp.195/). They have certainly been kind and encouraging to me!)
+
+With Sign Language data on the other hand, you basically have to _record a video of someone_. A real, specific person, and their face and hands. This presents a number of issues right off the bat.
+
+* Very reasonably, these people may not wish you to spread videos of them around without asking.
+* It is expensive to set up! You need to record a video with some sort of camera. You might need a studio.
+* If you pulled it off a website, do you have access legally? I assisted with a dataset like this, and we wrestled with this question a lot. [See discussion here.](https://openreview.net/forum?id=O36QcmUEDM&referrer=%5BAuthor%20Console%5D(%2Fgroup%3Fid%3DEMNLP%2F2023%2FConference%2FAuthors%23your-submissions))
+
+And then you run into issues once you've collected it. How, precisely does one annotate this? Is it truly representative of the language, do people really sign that way in casual conversations, or only when placed in front of a camera in a studio setting? And so on. There's a lot to think about.
+
+**Implications:**
+
+* You might not have a lot of data to work with.
+* One cannot just use whatever one finds, without potentially causing more harm than good.
+* Potentially you might need to get creative with things like transfer learning, hybrid systems, weak supervision and the like.
+* Building high quality benchmarks to actually measure and compare methods is likely to have massive impact downstream.
+* Same deal with building the tools to build the datasets. If you can lower the difficulty on _that_, the whole field benefits.
+* Maybe just spending a week annotating some data is going to have more impact than fiddling with a fancy model.
+
+### Sign Language Translation Research in 2024 is the Wild West... in 1861
+
+In 1861, the Pony Express began operating. That same year, the first transcontinental telegraph began operating. A few years later the first transcontinental railroad connected East to West. The frontier rapidly become more and more accessible and organized from there.
+
+What I mean by this is, sign language research is a frontier field, but developing. There's not much data, tools are new and untested, datasets aren't all standardized, and there's a lot of kinks to iron out. But that is changing! Tech is improving, code is being released and updated, tools are being improve, standards are being created, datasets are being released. We're still in the Wild West, but it's becoming more orderly and organized all the time.
+
+All of this very much reminds me of the low-resource machine translation field just a few years back, in 2020 or some. Back then, many of the same issues existed there, especially for lower resource languages, African languages, etc.
+
+Like with sign languages, many of these languages lacked (and frankly, usually _still_ lack) the sort of [digital support](https://www.semanticscholar.org/paper/Assessing-Digital-Language-Support-on-a-Global-Simons-Thomas/02f0b82987e5a27f7e0101d3bb9353b70f266591) present for the more, how shall we say, well-funded languages. There were [Systematic inequalities](https://arxiv.org/abs/2110.06733), [poor quality datasets](https://arxiv.org/abs/2103.12028), issues with [dataset-building tools](https://arxiv.org/abs/2010.14571), etc.
+
+Or, like with sign languages, you had many people who just... didn't really understand the issues involved. English was just automatically assumed to be the default. It was blithely assumed that what worked for English, or German, or other European languages would work fine for others. There were papers or techniques that claimed to have "solved" problems that were very much not yet solved. Which was very, very frustrating for members of communities that ended up badly marginalized, sometimes worse off forever. Why hire a translator for African languages like Fon, or Igbo, or Twi to help people at a hospital? Somebody made an auto-translator online, let's just use that! But no one asked the Africans. If they'd done so, they might have learned the model was not capable of doing that job!
+
+And, well, over time people got together and worked together, and built things, and the situation improved. Slowly, and often frustratingly. [AfricaNLP](https://sites.google.com/view/africanlp2023/home), and [No Language Left Behind](https://arxiv.org/abs/2207.04672) and the [Bender Rule](https://thegradient.pub/the-benderrule-on-naming-the-languages-we-study-and-why-it-matters/)
+
+**Implications:**
+
+* Expect bugs. File bug reports and pull requests if you can!
+* Different datasets might not be compatible or comparable. Maybe you can help?
+* Things are changing rapidly. Be flexible, and keep learning.
+
+### Sign Languages are real languages used by real people and real communities
+
+> If I speak in the tongues of men and of angels, but have not love, I am a noisy gong or a clanging cymbal.
+[_1 Corinthians 13:1, ESV_](https://www.biblegateway.com/passage/?search=1%20Corinthians%2013&version=ESV)
+
+In all of this discussion, I think it's really important to never lose sight of the fact that the whole point of any of this, of _all_ of this, is to _make the world better_. To _help_ people. What, precisely, is the point of building a fancy technology, if it does not do that?
+
+The history of Deaf communities has a long and often painful and sensitive history. And it's pretty common for people to just come in, and without actually communicating with any Deaf communities, decide arbitrarily that, for example, they should wear some sort of special glove and that'll fix it! But it's not that easy, [turns out that doesn't really help anyone.](https://www.theatlantic.com/technology/archive/2017/11/why-sign-language-gloves-dont-help-deaf-people/545441/). Or see [this blog post](https://audio-accessibility.com/news/2016/05/signing-gloves-hype-needs-stop/).
+
+Certainly I've seen many, many papers that will make bold claims that they've completely solved everything, Sign Language Translation Is Taken Care Of. And then it turns out that the actual technology just recognizes individual letters, from single images. Which is... not really how people usually sign? It's kind of like asking people to speak English one letter at a time... "H" "e" "l" "l" "o".
+
+As for me, well. I'm not a member of any Deaf community myself, and don't know anyone who is, a matter I am trying to remedy. So it would be very easy for me to fall into mistakes along those lines, and that's something I've tried to be aware of. I quite frankly don't know all the answers. All I can do personally do is try to [do justice, love kindness, and walk as humbly as I can](https://www.esv.org/Micah+6/).
+
+**Takeaways:**
+
+* Don't come into all this and think you're going to be the Great Savior Who Will Solve Everything. Be humble, ask questions. On that note, if I've messed anything in these notes up, [let me know](https://forms.gle/E3U6zibEzJVRMfr86)!
+* Don't overclaim. If you say that your neat tech has fixed everything, and then the hospital uses your tool instead of an actual interpreter... that would be pretty bad.
+* On a hopeful note, meaningful and useful technology might be more doable than you may think! You don't need to solve every problem for every language perfectly, in order to build something that people can actually get some decent use out of. Especially if you actually work with them and understand their needs.
+* Go read up a bit first!
+  * [Systemic Biases in Sign Language AI Research: A Deaf-Led Call to Reevaluate Research Agendas](https://arxiv.org/abs/2403.02563), by actual Deaf researchers. One of their calls to action is to simply be transparent about one's own position and situation.
+  * The [SignOn White Paper "Sign Language Technology: Dos and Don'ts"](https://signon-project.eu/wp-content/uploads/2023/12/White-Paper-Sign-Language-Technology-FINAL.pdf) has a number of recommendations, for example the ought-to-be-obvious recommendation to work on the problems and use-cases that people in the Deaf communities actually want solved. Like maybe they might want to use your tech for low-stakes daily things instead of high-stakes medical things?
+* Finally, don't take my word for any of this. Go join one of the online SL research communities, talk to people! They seem really nice, actually!
+  * The CREST network, for example. [signup here](https://groups.io/g/crest)
+  * The Sign Language Research slack channel is an excellent place to ask questions! [Invite link here, open to anyone interested in SL research](https://join.slack.com/t/signlanguager-kgn3800/shared_invite/zt-2fywilz3k-h_nctcijICnqoAPAfnNd~A).
+
+## What Codebases are out there?
+
+Like most coders/engineers, I ~~am a bit lazy~~ like to be economical with time and effort. I personally like having some code to work with, instead of having to create things totally from scratch. Of course, Sign Language Processing is a developing field. Much of what exists out there is research code. So getting it running isn't always easy. I went ahead and took a crack at some of them, results below. Mainly what I was looking for was:
 
 1. How recently maintained/updated is this? If it's been a long time, it will be harder to get running.
 2. The ImportError test: How hard is it to just install the requirements and run? Can I boot up a Colab Instance and get the scripts running without ImportErrors?
@@ -191,9 +359,13 @@ Some useful tricks I've learned
 
 ## Good places to look for more
 
+If you're interested to get smart about SLT methods, here are some sources for more info.
+
 ### research.sign.mt - best place for SLT background
 
-<https://research.sign.mt/> This is your best starting point for getting smart on SLT. It is a lovely open-source compendium of Sign Language Processing papers, data, and other resources.
+<https://research.sign.mt/> This is definitely your best starting point for getting smart on SLT. It is a lovely open-source compendium of Sign Language Processing papers, data, and other resources.
+
+It's readable, and kept generally up to date. Check it out.
 
 ### sign.mt and sign-language-processing github orgs
 
@@ -228,7 +400,7 @@ Code: The 2023 Shared Task has a ["Tools" page linking to several repos for base
 
 ### PapersWithCode
 
-<https://paperswithcode.com/task/sign-language-translation> lists a slew of papers, but it's incomplete. Notably it seems to be missing anything on the DGS Corpus.
+<https://paperswithcode.com/task/sign-language-translation> lists a slew of papers, but it's incomplete. Notably it seems to be missing anything on the DGS Corpus?
 
 ## Survey of Sign Language Processing Surveys
 
@@ -240,7 +412,7 @@ Quite an influential one, based on citation count maybe a "seminal work".
 
 #### [Systemic Biases in Sign Language AI Research A Deaf-Led Call to Reevaluate Research Agendas (2024)](https://arxiv.org/abs/2403.02563)
 
-Recent survey, looks at like 100+, including modeling decisions, and all of them are themselves Deaf. Interesting.
+Recent survey, looks at like 100+, including modeling decisions, and all of them are themselves Deaf. Interesting. I've seen it described by a quite respected SL researcher as a "must-read", and I think they're right.
 
 Things I learned:
 
@@ -279,6 +451,8 @@ Has a nice section on CSLR with a description of architectures. Those papers are
 
 Has a nice section talking about different SLT metrics. Mostly the same ones as NMT, e.g. BLEU. SLR has a few, e.g. sign error rate, gloss error rate. No mention of measuring sign language generation quality.
 
+TODO: have another look-see at this one, see if there's any methods that look interesting to investigate a bit more. 
+
 #### [Sign Language Translation A Survey of Approaches and Techniques (2023)](https://www.mdpi.com/2079-9292/12/12/2678)
 
 This one could use some copyediting. I did appreciate their dive into visual feature extractors.
@@ -291,11 +465,9 @@ Quite current, [open source.](https://github.com/sign-language-processing/sign-l
 
 #### [Unraveling a Decade A Comprehensive Survey on Isolated Sign Language Recognition (2023)](https://ieeexplore.ieee.org/document/10350553)
 
-If you wanted to do image2gloss, which I don't, this could be a good one... or so I thought. Actually contains quite a bit about video. Talks about input modalities, fusion methods, datasets, etc.
+If you wanted to do image2gloss, which I don't, this could be a good one... or so I thought. Actually it contains quite a bit about video methods. Talks about input modalities, fusion methods, datasets, etc.
 
 Interestingly it also does link a number of datasets with videos in them which might be relevant. This would be good to chase down.
-
-TODO: have a look into these datasets, make sure they're included
 
 * J. Wan, Y. Zhao, S. Zhou, I. Guyon, S. Escalera and S. Z. Li, "ChaLearn looking at people RGB-D isolated and continuous datasets for gesture recognition", CVPRW, pp. 56-64, 2016.
 * Sergio Escalera, Xavier Baró, Jordi Gonzalez, Miguel A Bautista, Meysam Madadi, Miguel Reyes, et al., "Chalearn looking at people challenge 2014: Dataset and results", ECCVW, pp. 459-473, 2015.
@@ -313,7 +485,7 @@ Cites 51 references, but doesn't provide a lot of useful/practical info. Of the 
 
 1. [SF-Net: Structured Feature Network for Continuous Sign Language Recognition](https://arxiv.org/abs/1908.01341) (2019) Continuous SLR and the abstract looks interesting. Skimming through I see a number of details about feature extraction methods. I don't think they release their code.
 2. [Spatial-Temporal Graph Convolutional Networks for Sign Language Recognition](https://link.springer.com/chapter/10.1007/978-3-030-30493-5_59) (2019) They provide source code and data for continuous SLR, and mention an interesting method as well.
-3. [Multiple Proposals for Continuous Arabic Sign Language Recognition](https://link.springer.com/article/10.1007/s11220-019-0225-3) (2019) they do in fact process successive frames of video. They use pixel differences. No code I think.
+3. [Multiple Proposals for Continuous Arabic Sign Language Recognition](https://link.springer.com/article/10.1007/s11220-019-0225-3) (2019) they do in fact process successive frames of video. They use pixel differences. No code I think?
 4. [Sign Language Recognition from Digital Videos Using Deep Learning Methods](https://link.springer.com/chapter/10.1007/978-3-030-72073-5_9) (2021) Video, and capsule networks is at least interesting and diferent.
 5. [An Integrated CNN-LSTM Model for Bangla Lexical Sign Language Recognition](https://link.springer.com/chapter/10.1007/978-981-33-4673-4_57) (2020) CNN-LSTM implies video. It seems quite basic but I guess it's in scope.
 6. [Temporal Lift Pooling for Continuous Sign Language Recognition](https://link.springer.com/chapter/10.1007/978-3-031-19833-5_30) (2022) code and continuous SLR, so it's relevant. [repo](https://github.com/hulianyuyy/Temporal-Lift-Pooling)
