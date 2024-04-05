@@ -63,6 +63,11 @@ I actually had _some_ success getting things running in Colab Pro, but of course
     - [WMT-SLT22](#wmt-slt22)
     - [WMT-SLT23](#wmt-slt23)
   - [PapersWithCode](#paperswithcode)
+- [Theories and Architectures](#theories-and-architectures)
+  - [What's the general trend for sign language translation?](#whats-the-general-trend-for-sign-language-translation)
+  - [Pose: everyone uses one of two options, but mostly MediaPipe](#pose-everyone-uses-one-of-two-options-but-mostly-mediapipe)
+  - [Interesting/Novel, I want to learn more](#interestingnovel-i-want-to-learn-more)
+- [Papers that do CNN+LSTM of some kind](#papers-that-do-cnnlstm-of-some-kind)
 - [Survey of Sign Language Processing Surveys](#survey-of-sign-language-processing-surveys)
   - [SLP in general](#slp-in-general)
     - [Sign Language Recognition, Generation, and Translation An Interdisciplinary Perspective (2019)](#sign-language-recognition-generation-and-translation-an-interdisciplinary-perspective-2019)
@@ -402,7 +407,91 @@ Code: The 2023 Shared Task has a ["Tools" page linking to several repos for base
 
 <https://paperswithcode.com/task/sign-language-translation> lists a slew of papers, but it's incomplete. Notably it seems to be missing anything on the DGS Corpus?
 
+## Theories and Architectures
+
+### What's the general trend for sign language translation?
+
+Sign Languages are inherently 4-dimensional. You've got the 3D position of your hands, face, etc., but also movement trajectories of those body parts.
+
+But then on top of that you've got the linguistic knowledge you need to capture. You need to somehow guide your model to encode all that 4D information into some sort of representation/embedding that describes the _meaning_ of the signs and sentences.
+
+Everyone has thought about this a lot, and borrowed from related fields. For example, taking in some continuous signal and mapping it to words and tokens is something the speech recognition folks do, let's see what they do! Or: take an action recognition model, or pose recognition model, and apply it.
+
+After reading many papers, I've noticed a few themes:
+
+* Many papers mention CNN+LSTM, where you extract visual information from each time-step/frame with a CNN, and then run an LSTM over the time dimension.
+* Many do pose estimation first, then plug the sequence of poses into an LSTM or transformer.
+* Many mention some sort of 3D Transformer over video frames. That is, 2D image plus time.
+* If they mention CNN only, or the word "accuracy", they are probably doing static classification from single frames.
+
+Essentially you've generally got some sort of "frame->feature" step, and then some sort of temporal architecture. CNN or vision transformer extract features from the 2D frames, or you do pose estimation.
+
+Then to get the time aspect you have things like I3D, Optical Flow, or just have a video transformer that operates 3D. 
+
+### Pose: everyone uses one of two options, but mostly MediaPipe
+
+Many papers I've seen use one of these two:
+
+* [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
+* [MediaPipe Holistic](https://github.com/google/mediapipe/blob/master/docs/solutions/holistic.md)
+
+But more and more I see MediaPipe. Mostly, I think, because:
+
+* Can give you 3D poses, not just 2D.
+* It just kind of seems easier to use?
+
+But as of April, it seems that the MediaPipe Holistic option is being... "upgraded"? And is now a ["legacy" solution](https://developers.google.com/mediapipe/solutions/guide#legacy). So watch that space I suppose. 
+
+### Interesting/Novel, I want to learn more
+
+Here I collect things that seem worth further investigation from a theory and architecture perspective, and why I think they're interesting
+
+* [Towards Privacy-Aware Sign Language Translation at Scale](http://arxiv.org/abs/2402.09611)
+  * Interest: high. They’ve got a semi-supervised method that works on large datasets, and a discussion of their architecture choices.
+  * Architecture:
+    * Hiera and MAE for the visuals
+    * Project that into T5 for language
+  * Code: "will be released" as of 4/5/2024.
+* [KnowComp Submission for WMT23 Sign Language Translation Task](https://aclanthology.org/2023.wmt-1.36)
+  * Interest: definitely. They’re doing SLT and talk about how, and they submitted to WMT, and there's code!
+  * Architecture: 
+    * Pretrained I3D for visuals
+    * Project that into German-GPT2
+  * Code: [https://github.com/HKUST-KnowComp/SLT](https://github.com/HKUST-KnowComp/SLT)
+* [Linguistically motivated sign language segmentation](https://aclanthology.org/2023.findings-emnlp.846)
+  * Interest: They leverage knowledge of SL Linguistics to build a segmentation method that can operate on videos of languages not in the training, pretty successfully. Segmentation of video is useful for downstream tasks like translation, and there’s important information about SL linguistics, and how to leverage that intelligently.
+  * Architecture:
+    * Visuals go into MediaPipe pose estimator, optical flow
+    * They do various preprocessing, pose normalization, etc.
+    * LSTM encoder for the task, plus a classifier on top. And they cite the original 1997 LSTM paper, nice.
+  * Code: [https://github.com/sign-language-processing/segmentation](https://github.com/sign-language-processing/segmentation)
+* [SignNet II: A Transformer-Based Two-Way Sign Language Translation Model](https://ieeexplore.ieee.org/abstract/document/9999492)
+  * Interest: High. Recent, SLT on German Sign Language, “Cross-Feature Fusion Based Transformer Model”, Dual Learning, Pose2Text, Text2Pose, Attention Visualization does both sign2text and tex2sign, goes into detail with pictures of architectures, does list/comparison with other archs. They evaluate on RWTH-PHOENIX-Weather2014T only, perhaps might be interesting to try on others?
+  * "Neural Machines for Continuous Sign Language Translation" section has a nice roundup of the SOTA, worth a read.
+  * Architecture/Theory:
+    * "Cross-Feature Fusion Based Transformer Model".
+    * Basically they go from video to three different output features at once: CNN, Optical Flow, and OpenPose. Those are your embeddings for the vision part.
+    * That then goes into a Transformer for the time domain.
+    * Then they analyze THAT and conclude that the keypoint/pose is the best.
+    * Finally, they do a "dual-learning" setup, where they train on both pose-to-text and text-to-pose, I believe the idea being that this helps regularize the learning. Reminds me of back-translation.
+  * Code: no.
+
+
+
+
+## Papers that do CNN+LSTM of some kind
+
+Quite a few papers do something of this nature. Examples include:
+
+[A Deep Learning Solution for Arabic Words Sign Language Recognition in the Context of Sentences](https://ieeexplore.ieee.org/document/10361379)
+
+* preprocess video to get "Sum of Displaced Differences Images"
+* uses CNN on those.
+* Put that into a BiLSTM.
+
 ## Survey of Sign Language Processing Surveys
+
+Let's have a look at some survey papers, shall we?
 
 ### SLP in general
 
