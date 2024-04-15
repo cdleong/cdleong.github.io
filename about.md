@@ -29,7 +29,7 @@ And to quote Patrick Henry: "...in proportion to the magnitude of the subject ou
 * See [Known Issues]({{ site.baseurl }}/known_issues/) for a list of problems or flaws with me that I wish to improve. 
 * [Things God has Done]({{ site.baseurl }}/things_god_has_done/): God's done a lot for me. I record a few items here.
 * [Why I Trust God]({{ site.baseurl }}/thoughts/why_i_trust_god/): My journey of faith thus far. 
-* [Interesting Problems]({{ site.baseurl }}/problems/): Important problems or interesting questions I find meaningful, and I'd like to help solve.
+* [Interesting Problems]({{ site.baseurl }}/thoughts/problems/): Important problems or interesting questions I find meaningful, and I'd like to help solve.
 
 # Whimsy
 [I love programming!]({{ site.baseurl }}/i-love-programming) My love life with respect to programming languages.
