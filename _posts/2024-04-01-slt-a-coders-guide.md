@@ -28,6 +28,7 @@ I actually had _some_ success getting things running in Colab Pro, but of course
 - [tl;dr](#tldr)
 - [The Problem: Challenges for Sign Language Translation](#the-problem-challenges-for-sign-language-translation)
   - [Sign Languages are Natural Languages, Natural Language Processing is Hard](#sign-languages-are-natural-languages-natural-language-processing-is-hard)
+    - [A selection of interesting visual/linguistic challenges](#a-selection-of-interesting-visuallinguistic-challenges)
   - [Sign Languages are Visual, Spatial, Simultaneous, and Nonlinear](#sign-languages-are-visual-spatial-simultaneous-and-nonlinear)
   - [Sign Language Data is hard to work with, computationally](#sign-language-data-is-hard-to-work-with-computationally)
   - [Sign Language Datasets are Hard To Make, there are not so many as text](#sign-language-datasets-are-hard-to-make-there-are-not-so-many-as-text)
@@ -86,6 +87,7 @@ I actually had _some_ success getting things running in Colab Pro, but of course
     - [Comparative Analysis of Multiple ML Models and Real-Time Translation (2023)](#comparative-analysis-of-multiple-ml-models-and-real-time-translation-2023)
     - [Indian Sign Language Recognition Using Classical And Machine Learning Techniques A Review (2023)](#indian-sign-language-recognition-using-classical-and-machine-learning-techniques-a-review-2023)
     - [Quantitative Survey of the State of the Art in Sign Language Recognition (2020)](#quantitative-survey-of-the-state-of-the-art-in-sign-language-recognition-2020)
+- [Changelog](#changelog)
 
 ## tl;dr
 
@@ -116,9 +118,19 @@ And then there's things like idioms, and proper nouns or named entities, and som
 
 If you want a really deep dive, have a read of [this textbook](https://www.cambridge.org/core/books/sign-language-and-linguistic-universals/3DCD779D499F59838FBC2FC01C0092BC), pretty much the seminal work on Sign Languages and their linguistics.
 
-To really translate any language properly, you would need to be able to take all these things into account! We struggle to do this, even for spoken languages, recorded with text!
+#### A selection of interesting visual/linguistic challenges
+
+* [Classifier predicates](https://www.handspeak.com/learn/17/). Morphology in action here, you have a predicate sign which modifies the meaning of a subject sign.
+* [Indexing](https://www.lifeprint.com/asl101/pages-layout/indexing.htm), where you point at a person or thing. Which can be absent actually, you can for example point off to the side to indicate an abstract "they". Or you point at someone who is actually there.
+* [Role Shifting](https://www.handspeak.com/learn/16/), where one assumes a role by for example shifting your head, stepping to one side or the other. I saw a Sign Language Interpreter face up as if to Heaven when translating prayers to God, and face down as if speaking from above when interpreting a divine statement. In [A Unified Contrastive Analysis of Lateral Shift in American Sign Language](https://projects.iq.harvard.edu/files/meaningandmodality/files/joyce_poster_final.pdf), Taylor Joyce does linguistic analysis on the phenomenon, looking at different ways body shifts can convey meaning.
+* [Lexicalization](https://www.lifeprint.com/asl101/topics/lexicalization.htm). Lifeprint describes lexicalization as "the process of making words by squishing a string of words, or words parts into one word (or group of words that you treat as one concept) and/or borrowing a word from another language." Which reminds me very much of how in spoken languages you get words smushed together like "you all" becoming "y'all", or "you all must have" -> "y'allmst've". Yes I believe that's a real one, I've heard reports of it being used. I'm also a fan of "imma".
+* [Loan Signs](https://www.lifeprint.com/asl101/topics/loansigns.htm). Yup, just like spoken languages, sign languages can borrow words from each other. Sign languages are natural languages, natural languages grow and change and morph over time!
 
 **Implications:**
+
+To really translate any language properly, you would need to be able to take all these things into account! We struggle to do this, even for spoken languages, recorded with text!
+
+Of course, even an imperfect solution can still be useful! If I'm using Google Translate with some language and I realize it's not super accurate, I may still use it to translate simple things like "bathroom" and "where"!
 
 * Like any natural language, with a sign language we would like to have some way to capture the context of the whole phrase or sentence, and ideally the whole conversation. Single-frame methods just won't do.
 * We would also like to have some way to understand and take into account the wider patterns of the language. How words combine, how certain words are used typically... grammar and idioms and expressions and morphology and even more. Which means for any particular language, we need to have a representative sample of language as a whole, and somehow encode that knowledge into our translation method.
@@ -356,11 +368,13 @@ Here's what they say...
 
 Some useful tricks I've learned
 
-* **Don't use Python 3.12!** If you try pip installing and it won't work, often it will work if you go back to older, more well-tested versions. Often libraries just cannot be installed on 3.12. Not an issue on Colab because it uses 3.10 by default, but if you are on a workstation and using conda, it'll try to install 3.12 by default at time of writing .
+* **Don't use Python 3.12!** If you try pip installing and it won't work, often it will work if you go back to older, more well-tested versions. Often libraries just cannot be installed on 3.12. Not an issue on Colab because it uses 3.10 by default, but if you are on a workstation and using conda, it'll try to install 3.12 by default at time of writing.
+  * Check the [Status of Python Versions](https://devguide.python.org/versions/). When they wrote their Readme, what was the default?
 * pipreqs library can analyze code and generate a requirements.txt file
 * deptry library can analyze a repo and requirements.txt for problems like unused imports, imports that aren't listed in the requirements, etc.
 * pur will try to auto-update requirements.txt files to newer versions.
 * condacolab lets you use conda commands in Google Colab, though not create new envs. This is really nice if a project uses environment.yml instead of requirements.txt
+
 
 ## Good places to look for more
 
@@ -615,3 +629,8 @@ Goes over various approaches to Indian Sign Language. We care about the vision-b
 #### [Quantitative Survey of the State of the Art in Sign Language Recognition (2020)](https://arxiv.org/abs/2008.09918)
 
 300 papers, 400 experimental results... very extensive work, and by one person! Also they basically collect everything on RWTH-PHOENIX-Weather at the time. They also have the line "Surprisingly, RWTH-PHOENIX-Weather with a vocabulary of 1080 signs represents the only resource for large vocabulary continuous sign language recognition benchmarking world wide." I wonder if that's still true 4 years later?
+
+## Changelog
+
+* 2024-04-01: started the article. Fleshed out the main outline and over the course of that week.
+* 2024-04-15: added "a selection of visual/linguistic challenges".
