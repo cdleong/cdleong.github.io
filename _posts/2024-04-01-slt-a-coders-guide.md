@@ -1,6 +1,7 @@
 ---
 layout: post
 title: A Coder's Guide to Sign Language Translation Research in 2024
+permalink: /slt-guide/
 ---
 ![My Name is Colin]({{ site.baseurl }}/images/slt_for_coders/self_intro_asl.gif) ([`MY`](https://www.handspeak.com/word/1448/) [`NAME`](https://www.handspeak.com/word/1464/) [`C-O-L-I-N`](https://www.handspeak.com/learn/408/), aka "My name is Colin" in [ASL](https://www.ethnologue.com/language/ase/), though I flubbed the "N" a bit)
 So, it's 2024, and AI is cool, and you want to try your hand (haha) at sign language translation! Not recognizing _finger-spelling_ in static images, you want to do full-on _translation_: videos come in with someone signing in one of the [many sign languages that are out there](https://www.ethnologue.com/subgroup/2/), and full sentences come out the other side in some spoken language. Where does one even start? Here's some notes and starting from a coder's perspective, focusing on what seems the most viable and pragmatic from a coding standpoint.
@@ -31,6 +32,7 @@ I actually had _some_ success getting things running in Colab Pro, but of course
     - [A selection of interesting visual/linguistic challenges](#a-selection-of-interesting-visuallinguistic-challenges)
   - [Sign Languages are Visual, Spatial, Simultaneous, and Nonlinear](#sign-languages-are-visual-spatial-simultaneous-and-nonlinear)
   - [Sign Language Data is hard to work with, computationally](#sign-language-data-is-hard-to-work-with-computationally)
+    - [Dimensionality of Sign Language Data is High](#dimensionality-of-sign-language-data-is-high)
   - [Sign Language Datasets are Hard To Make, there are not so many as text](#sign-language-datasets-are-hard-to-make-there-are-not-so-many-as-text)
   - [Sign Language Translation Research in 2024 is the Wild West... in 1861](#sign-language-translation-research-in-2024-is-the-wild-west-in-1861)
   - [Sign Languages are real languages used by real people and real communities](#sign-languages-are-real-languages-used-by-real-people-and-real-communities)
@@ -173,9 +175,14 @@ When you are trying to do sign language processing you have to deal with some fu
   * Your standard Transformer model's memory usage goes up quadratically with context length. If you try to load in hundreds of video frames, it will choke and your GPU may spontaneously combust. [Though many folks are working on that](https://arxiv.org/abs/2402.02244).
 * If you strip out information, you, well, lose subtleties. Having a wireframe skeleton showing the pose/positions you might miss things like: where are they looking? Are they making a happy face or a sad face?
 
+#### Dimensionality of Sign Language Data is High
+
+Sign Language Data is highly dimensional, and the signal to noise ratio is really high. See [my musings on this]({{ site.baseurl }}/sign-bits/).
+
 **Implications:**
 
 * It would be nice to make the representation you pick [as simple as possible, but not simpler!](https://quoteinvestigator.com/2011/05/13/einstein-simple/). Smaller formats are easier to work wish, easier to process, easier to share. But lose information. Think about what you are losing!
+* Here is a place we could draw inspiration from other fields with high-dimensional data. Perhaps things like Hyperspectral Imagery work?
 
 ### Sign Language Datasets are Hard To Make, there are not so many as text
 
@@ -454,7 +461,9 @@ But more and more I see MediaPipe. Mostly, I think, because:
 * Can give you 3D poses, not just 2D.
 * It just kind of seems easier to use?
 
-But as of April, it seems that the MediaPipe Holistic option is being... "upgraded"? And is now a ["legacy" solution](https://developers.google.com/mediapipe/solutions/guide#legacy). So watch that space I suppose. 
+But as of April, it seems that the MediaPipe Holistic option is being... "upgraded"? And is now a ["legacy" solution](https://developers.google.com/mediapipe/solutions/guide#legacy). So watch that space I suppose.
+
+Another one worth mentioning might be [AlphaPose](https://github.com/MVIG-SJTU/AlphaPose). [LSA-T dataset](https://link.springer.com/chapter/10.1007/978-3-031-22419-5_25#Fn2) uses it for example, talking about how it lets them capture full-body keypoints for multiple signers in a scene, which then also allowed them to identify which person was actively signing.
 
 ### Interesting/Novel, I want to learn more
 
@@ -463,8 +472,8 @@ Here I collect things that seem worth further investigation from a theory and ar
 * [Towards Privacy-Aware Sign Language Translation at Scale](http://arxiv.org/abs/2402.09611)
   * Interest: high. They’ve got a semi-supervised method that works on large datasets, and a discussion of their architecture choices.
   * Architecture:
-    * Hiera and MAE for the visuals
-    * Project that into T5 for language
+    * Hiera and MAE for the visuals.
+    * Projection of the visual information into T5 for language.
   * Code: "will be released" as of 4/5/2024.
 * [KnowComp Submission for WMT23 Sign Language Translation Task](https://aclanthology.org/2023.wmt-1.36)
   * Interest: definitely. They’re doing SLT and talk about how, and they submitted to WMT, and there's code!
@@ -490,9 +499,6 @@ Here I collect things that seem worth further investigation from a theory and ar
     * Finally, they do a "dual-learning" setup, where they train on both pose-to-text and text-to-pose, I believe the idea being that this helps regularize the learning. Reminds me of back-translation.
   * Code: no.
 
-
-
-
 ## Papers that do CNN+LSTM of some kind
 
 Quite a few papers do something of this nature. Examples include:
@@ -515,26 +521,26 @@ Quite an influential one, based on citation count maybe a "seminal work".
 
 #### [Systemic Biases in Sign Language AI Research A Deaf-Led Call to Reevaluate Research Agendas (2024)](https://arxiv.org/abs/2403.02563)
 
-Recent survey, looks at like 100+, including modeling decisions, and all of them are themselves Deaf. Interesting. I've seen it described by a quite respected SL researcher as a "must-read", and I think they're right.
+Recent survey, looks at like 100+, including modeling decisions, and all of the writers are themselves Deaf. Interesting. I've seen it described by a quite respected SL researcher as a "must-read", and I think they're right.
 
 Things I learned:
 
 * Basically the communication barriers may not be what one might think, lots of oversimplification/overstating going on
   * "deaf people use sign language" is oversimplified, it's way more complicated. Many times it's deliberately not given as an option/suppressed, and people often use a mix, and other complexities.
-  * Lots of people know both kinds
+  * Lots of people know both a sign language and a spoken language. Basically it's not homogenous.
   * Maybe people don't need the technosolutions, they've got their own strategies already, don't overinflate the importance of the tech.
-* Dataset misalignment with, llike, real life
+* Dataset misalignment with, like, real life
   * Interpreters only for example. They might not sign the same way.
   * Lots of details on who and how are glossed over in dataset creation
-  * IRL, the "born deaf, only communicate with other deaf people" situation is super rare,  often you get "born to hearing families, signing specifically discouraged, learned it way later"
+  * IRL, the "born deaf, only communicate with other deaf people" situation is super rare, often you get "born to hearing families, signing specifically discouraged, learned it way later".
   * IRL there's so much variation, but datasets for ML simplify. Clean Data/annotations in conflict with IRL conditions
 * labels lacking linguistic foundation
   * glosses without thinking about it
-  * Present (gift) or Present (time) given the same gloss in one, different in another
-  * glosses are not a translation!
-  * What glossing system was even used?
-  * Subtitles often have quality issues
-  * It's NLP! Not just Computer Vision!
+  * Present (gift) or Present (time) given the same gloss in one paper, different in another paper. Inconsistencies.
+  * Glosses are not a translation! Some people treat it that way.
+  * What glossing system was even used? Not always explained.
+  * Subtitles often have quality issues, and that's not addressed.
+  * It's NLP! Not just Computer Vision! So techniques that act like it's purely CV run into issues there.
 * Modeling decisions
   * various issues with pose estimation
   * various issues with pretraining on non-sign datasets SLP Open Problems and Questions
@@ -568,7 +574,7 @@ Quite current, [open source.](https://github.com/sign-language-processing/sign-l
 
 #### [Unraveling a Decade A Comprehensive Survey on Isolated Sign Language Recognition (2023)](https://ieeexplore.ieee.org/document/10350553)
 
-If you wanted to do image2gloss, which I don't, this could be a good one... or so I thought. Actually it contains quite a bit about video methods. Talks about input modalities, fusion methods, datasets, etc.
+This survey contains quite a bit about video methods actually, I misinterpreted the name at first. Talks about input modalities, fusion methods, datasets, etc.
 
 Interestingly it also does link a number of datasets with videos in them which might be relevant. This would be good to chase down.
 
@@ -634,3 +640,4 @@ Goes over various approaches to Indian Sign Language. We care about the vision-b
 
 * 2024-04-01: started the article. Fleshed out the main outline and over the course of that week.
 * 2024-04-15: added "a selection of visual/linguistic challenges".
+* 2024-04-18: cross link to new article
