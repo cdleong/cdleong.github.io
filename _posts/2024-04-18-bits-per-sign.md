@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How Sparse is Sign Language Data? - Or, Is 1080p Video Really Just 39 bits Per Second, When Signing?
+permalink: /sign-bits/
 ---
 In which I muse on the dimensionality and Information Density of sign language data, looking at it from a few angles, and guesstimate a signal-to-noise ratio that is very, very small. I estimate an information transfer rate of 40-50 bits per second, and calculate that the resulting signal-to-noise ratio could be incredibly low, somewhere vaguely in the range of 0.00000043.
 
