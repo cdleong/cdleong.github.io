@@ -86,9 +86,13 @@ I actually had _some_ success getting things running in Colab Pro, but of course
     - [Sign Language Production: A Review (2021)](#sign-language-production-a-review-2021)
     - [Sign Language Recognition: Current State of Knowledge and Future Directions (2023)](#sign-language-recognition-current-state-of-knowledge-and-future-directions-2023)
   - [Miscellaneous](#miscellaneous)
+    - [Metrics](#metrics)
     - [Comparative Analysis of Multiple ML Models and Real-Time Translation (2023)](#comparative-analysis-of-multiple-ml-models-and-real-time-translation-2023)
     - [Indian Sign Language Recognition Using Classical And Machine Learning Techniques A Review (2023)](#indian-sign-language-recognition-using-classical-and-machine-learning-techniques-a-review-2023)
     - [Quantitative Survey of the State of the Art in Sign Language Recognition (2020)](#quantitative-survey-of-the-state-of-the-art-in-sign-language-recognition-2020)
+- [Ideas and Potential Starting Points](#ideas-and-potential-starting-points)
+  - [Ctrl-F for Signs?](#ctrl-f-for-signs)
+  - [Compress and Simplify?](#compress-and-simplify)
 - [Changelog](#changelog)
 
 ## tl;dr
@@ -624,6 +628,13 @@ Potentially interesting, I'm just not focusing on text2sign at the moment.
 
 ### Miscellaneous
 
+
+#### Metrics
+
+Often people use standard MT Metrics, e.g. BLEU. 
+
+[Helpful guide to those.](http://www2.statmt.org/book/slides/08-evaluation.pdf) which explains a bit about BLEU-1, BLEU-4, brevity, etc. Of course it can be difficult, so in NMT people often use [SacreBLEU](https://github.com/mjpost/sacrebleu)
+
 #### [Comparative Analysis of Multiple ML Models and Real-Time Translation (2023)](https://ieeexplore.ieee.org/document/10346894)
 
 Not my favorite. Their terminology is not always sensitive and kind. Also the writing quality is not amazing. And in the end the thing they actually do is pretty basic, not actually a survey paper but a few entry-level experiments on “alphabets”.
@@ -634,10 +645,31 @@ Goes over various approaches to Indian Sign Language. We care about the vision-b
 
 #### [Quantitative Survey of the State of the Art in Sign Language Recognition (2020)](https://arxiv.org/abs/2008.09918)
 
-300 papers, 400 experimental results... very extensive work, and by one person! Also they basically collect everything on RWTH-PHOENIX-Weather at the time. They also have the line "Surprisingly, RWTH-PHOENIX-Weather with a vocabulary of 1080 signs represents the only resource for large vocabulary continuous sign language recognition benchmarking world wide." I wonder if that's still true 4 years later?
+300 papers, 400 experimental results... very extensive work, and by one person! Also they basically collect everything on RWTH-PHOENIX-Weather at the time. They also have the line "Surprisingly, RWTH-PHOENIX-Weather with a vocabulary of 1080 signs represents the only resource for large vocabulary continuous sign language recognition benchmarking world wide." I wonder if that's still true 4 years later? (I don't think so, there's a lot more listed on research.sign.met)
+
+## Ideas and Potential Starting Points
+
+### Ctrl-F for Signs?
+
+One task which would be very helpful would be the ability to perform a sign and then scrub through videos in order to find similar signs. Useful for:
+
+* Learning a sign language. Someone does a sign and you want to find it in a database or a video.
+* For people creating (or watching) SL videos, this would make it much easier to do things find/replace operations, or even know which videos contain it and where. Based on conversations with people involved with ASLV, this would make their lives easier.
+
+### Compress and Simplify?
+
+* If the data is highly dimensional, can we compress it for storage and processing?
+  * Naive ideas like masking out the non-people-parts so the .mp4 can reduce file size.
+    * But then the NN takes in the full grid of pixels for every single frame, even though huge swaths of the input are just not relevant.
+    * Can we use an attention model to estimate the relevant parts of the data and lossfully compress the rest?
+    * Compress, THEN learn, like in [Training LLMs over Neurally Compressed Text](https://arxiv.org/abs/2404.03626)
+  * can we do a dimensionality reduction? Get it down closer to 40-50 bits/second.
+  * What about an autoencoder? [Sign-VQ](https://github.com/sign-language-processing/sign-vq) repo looks at that.
+
 
 ## Changelog
 
 * 2024-04-01: started the article. Fleshed out the main outline and over the course of that week.
 * 2024-04-15: added "a selection of visual/linguistic challenges".
 * 2024-04-18: cross link to new article
+* 2024-04-19: add some ideas/starting points.
