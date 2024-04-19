@@ -100,6 +100,10 @@ Wow.
 
 You can [calculate entropies of English text here](https://www.dcode.fr/shannon-index).
 
+#### Various works on compression, dimensionality
+
+"Intrinsic Dimensionality Explains the Effectiveness of Language Model Fine-Tuning" looks at LLMs, and finds that they do some kind of dimensionality reduction internally, I believe? They look at it from the lens of "intrinsic dimension". They talk about a "Fastfood transform" as well which sounds interesting. But they can basically find a vastly vastly smaller dimensionality which gets mostly the same results. Reminds me of pruning papers. They didn't have the compute to train a bazillion RoBERTas.
+
 #### Google N-Gram
 
 Google N-Gram viewer lets you look at word frequencies over time.
@@ -267,9 +271,27 @@ Google N-Gram viewer lets you look at word frequencies over time.
   pmid = {27659950}
 }
 
+@misc{  ,
+  title = {Intrinsic {{Dimensionality Explains}} the {{Effectiveness}} of {{Language Model Fine-Tuning}}},
+  author = {Aghajanyan, Armen and Zettlemoyer, Luke and Gupta, Sonal},
+  year = {2020},
+  month = dec,
+  number = {arXiv:2012.13255},
+  eprint = {2012.13255},
+  primaryclass = {cs},
+  publisher = {arXiv},
+  url = {http://arxiv.org/abs/2012.13255},
+  urldate = {2024-04-16},
+  archiveprefix = {arxiv},
+  langid = {english},
+  keywords = {Computer Science - Computation and Language,Computer Science - Machine Learning}
+}
+
+
 
 ```
 
 ## Changelog
 
-* 2024-04-18: article creation. 
+* 2024-04-18: article creation.
+* 2024-04-19: a bit about dimensionality/compression works.
