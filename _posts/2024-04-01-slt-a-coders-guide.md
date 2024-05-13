@@ -43,6 +43,7 @@ I actually had _some_ success getting things running in Colab Pro, but of course
     - [KnowComp submission for WMT SLT](#knowcomp-submission-for-wmt-slt)
     - [WMT SLT 2023 Sockeye Baseline](#wmt-slt-2023-sockeye-baseline)
     - [WMT-SLT23 I3D baseline, aka "Sign Language Translation from Instructional Videos"](#wmt-slt23-i3d-baseline-aka-sign-language-translation-from-instructional-videos)
+    - [Conditional Variational Autoencoder for Sign Language Translation with Cross-Modal Alignment](#conditional-variational-autoencoder-for-sign-language-translation-with-cross-modal-alignment)
     - [Pose-Format](#pose-format)
     - [MediaPipe Holistic Hand Landmarker](#mediapipe-holistic-hand-landmarker)
   - [Needs more effort to get running](#needs-more-effort-to-get-running)
@@ -299,6 +300,19 @@ Ran into some trouble, haven't yet found a way to get them all installed.
 * [repo](https://github.com/imatge-upc/slt_how2sign_wicv2023)
 * [My attempt to install the requirements for the I3D baseline in Colab](https://colab.research.google.com/drive/1GKHID0WMbXwnWXHD1iXQfs95nhWz9NQt?usp=sharing)
 ... got them installed! Haven't yet managed to run anything though, need data for that.
+
+
+#### [Conditional Variational Autoencoder for Sign Language Translation with Cross-Modal Alignment](https://openaccess.thecvf.com/content/CVPR2022/html/Chen_A_Simple_Multi-Modality_Transfer_Learning_Baseline_for_Sign_Language_Translation_CVPR_2022_paper.html)
+
+* [repo](https://github.com/rzhao-zhsq/CV-SLT), apparently based on [SLRT](https://github.com/FangyunWei/SLRT/blob/main/TwoStreamNetwork/docs/SingleStream-SLT.md)
+* [Colab attempt at installing reqs](https://colab.research.google.com/drive/1G314SDvCDpyY2shMVouOusQ9fplP9t1z?usp=sharing), got the reqs installed successfully.
+
+The tl;dr on this paper: Make the model guess from visual info only, then go again with text. Use statistics - first time through was the "prior", second time through is the "posterior", and it learns to correct itself using, like, a distribution. And there's CVAEs ([explained here](https://theaiacademy.blogspot.com/2020/05/understanding-conditional-variational.html), given Y please generate X etc) for the visuals. 
+
+The code looks pretty nice! Conda env file, data prep, not too old, paths in .yaml files, checkpoints provided (including the ones for replication), commands to train and evaluate, very nice.
+
+Apparently it requires "pre-extracted features", apparently from S3D, [see here](https://github.com/FangyunWei/SLRT/blob/main/TwoStreamNetwork/docs/SingleStream-SLT.md#multi-modal-joint-training) for how to do that.
+
 
 #### [Pose-Format](https://github.com/sign-language-processing/pose)
 
@@ -637,11 +651,11 @@ Often people use standard MT Metrics, e.g. BLEU.
 
 #### [Comparative Analysis of Multiple ML Models and Real-Time Translation (2023)](https://ieeexplore.ieee.org/document/10346894)
 
-Not my favorite. Their terminology is not always sensitive and kind. Also the writing quality is not amazing. And in the end the thing they actually do is pretty basic, not actually a survey paper but a few entry-level experiments on “alphabets”.
+Not my favorite. I'm a bit unsure about the terminology choices, and I struggle to understand the writing style. And in the end the thing they actually do is not actually a survey paper but a few entry-level experiments on “alphabets”.
 
 #### [Indian Sign Language Recognition Using Classical And Machine Learning Techniques A Review (2023)](https://ieeexplore.ieee.org/document/10136059)
 
-Goes over various approaches to Indian Sign Language. We care about the vision-based ones. But then they're explaining what... Anaconda is...? And Precision/Recall are? This is very basic stuff. And they describe a system of their own but it seems to be just standard off-the-shelf items? I'm not sure this is worth including.
+Goes over various approaches to Indian Sign Language. We care about the vision-based ones. But then they're explaining what... Anaconda is...? And Precision/Recall are? This is very basic stuff. And they describe a system of their own but it seems to be just standard off-the-shelf items? 
 
 #### [Quantitative Survey of the State of the Art in Sign Language Recognition (2020)](https://arxiv.org/abs/2008.09918)
 
@@ -665,7 +679,6 @@ One task which would be very helpful would be the ability to perform a sign and 
     * Compress, THEN learn, like in [Training LLMs over Neurally Compressed Text](https://arxiv.org/abs/2404.03626)
   * can we do a dimensionality reduction? Get it down closer to 40-50 bits/second.
   * What about an autoencoder? [Sign-VQ](https://github.com/sign-language-processing/sign-vq) repo looks at that.
-
 
 ## Changelog
 
