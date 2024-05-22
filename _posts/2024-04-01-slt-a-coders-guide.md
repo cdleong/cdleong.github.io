@@ -37,6 +37,12 @@ I actually had _some_ success getting things running in Colab Pro, but of course
   - [Sign Language Translation Research in 2024 is the Wild West... in 1861](#sign-language-translation-research-in-2024-is-the-wild-west-in-1861)
   - [Sign Languages are real languages used by real people and real communities](#sign-languages-are-real-languages-used-by-real-people-and-real-communities)
 - [What Codebases are out there?](#what-codebases-are-out-there)
+  - [Useful tools/libraries](#useful-toolslibraries)
+    - [Pose-Format](#pose-format)
+    - [MediaPipe Holistic Hand Landmarker](#mediapipe-holistic-hand-landmarker)
+    - [Video Feature libraries/code](#video-feature-librariescode)
+    - [`video_features`](#video_features)
+      - [i3dFeatureExtraction](#i3dfeatureextraction)
   - [SLT Resources that seem replicable/usable](#slt-resources-that-seem-replicableusable)
     - [Sign Language Datasets](#sign-language-datasets)
     - [Two-Stream Network for Sign Language Recognition and Translation, NeurIPS2022](#two-stream-network-for-sign-language-recognition-and-translation-neurips2022)
@@ -44,8 +50,6 @@ I actually had _some_ success getting things running in Colab Pro, but of course
     - [WMT SLT 2023 Sockeye Baseline](#wmt-slt-2023-sockeye-baseline)
     - [WMT-SLT23 I3D baseline, aka "Sign Language Translation from Instructional Videos"](#wmt-slt23-i3d-baseline-aka-sign-language-translation-from-instructional-videos)
     - [Conditional Variational Autoencoder for Sign Language Translation with Cross-Modal Alignment](#conditional-variational-autoencoder-for-sign-language-translation-with-cross-modal-alignment)
-    - [Pose-Format](#pose-format)
-    - [MediaPipe Holistic Hand Landmarker](#mediapipe-holistic-hand-landmarker)
   - [Needs more effort to get running](#needs-more-effort-to-get-running)
     - [SLTUnet](#sltunet)
     - [Tackling Low-Resourced Sign Language Translation: UPC at WMT-SLT 22. One of the submissions to the WMT SLT '22 contest](#tackling-low-resourced-sign-language-translation-upc-at-wmt-slt-22-one-of-the-submissions-to-the-wmt-slt-22-contest)
@@ -272,6 +276,30 @@ Like most coders/engineers, I ~~am a bit lazy~~ like to be economical with time 
 1. How recently maintained/updated is this? If it's been a long time, it will be harder to get running.
 2. The ImportError test: How hard is it to just install the requirements and run? Can I boot up a Colab Instance and get the scripts running without ImportErrors?
 
+### Useful tools/libraries
+
+#### [Pose-Format](https://github.com/sign-language-processing/pose)
+
+* A whole pip-installable SLP library for dealing with poses, making it easier to deal with.
+
+#### [MediaPipe Holistic Hand Landmarker](https://developers.google.com/mediapipe/solutions/vision/hand_landmarker)
+
+Many papers use/cite this one. But it seems it's now a "legacy" item, no longer supported.
+
+#### Video Feature libraries/code
+
+#### [`video_features`](https://v-iashin.github.io/video_features/)
+
+A number of SLP approaches use visual features such as I3D or S3D. This repo purports to let you extract features such as:
+
+* I3D
+* [S3D](https://arxiv.org/abs/1712.04851) (the original/official implementation of which is [here](https://github.com/kylemin/S3D))
+* Optical Flow
+
+##### i3dFeatureExtraction
+
+`i3dFeatureExtraction` [here](https://pypi.org/project/i3dFeatureExtraction/#history), a pip library that "helps extract i3D features with ResNet-50 backbone given a folder of videos".
+
 ### SLT Resources that seem replicable/usable
 
 #### [Sign Language Datasets](https://github.com/sign-language-processing/datasets)
@@ -301,7 +329,6 @@ Ran into some trouble, haven't yet found a way to get them all installed.
 * [My attempt to install the requirements for the I3D baseline in Colab](https://colab.research.google.com/drive/1GKHID0WMbXwnWXHD1iXQfs95nhWz9NQt?usp=sharing)
 ... got them installed! Haven't yet managed to run anything though, need data for that.
 
-
 #### [Conditional Variational Autoencoder for Sign Language Translation with Cross-Modal Alignment](https://openaccess.thecvf.com/content/CVPR2022/html/Chen_A_Simple_Multi-Modality_Transfer_Learning_Baseline_for_Sign_Language_Translation_CVPR_2022_paper.html)
 
 * [repo](https://github.com/rzhao-zhsq/CV-SLT), apparently based on [SLRT](https://github.com/FangyunWei/SLRT/blob/main/TwoStreamNetwork/docs/SingleStream-SLT.md)
@@ -314,13 +341,6 @@ The code looks pretty nice! Conda env file, data prep, not too old, paths in .ya
 Apparently it requires "pre-extracted features", apparently from S3D, [see here](https://github.com/FangyunWei/SLRT/blob/main/TwoStreamNetwork/docs/SingleStream-SLT.md#multi-modal-joint-training) for how to do that.
 
 
-#### [Pose-Format](https://github.com/sign-language-processing/pose)
-
-* A whole pip-installable SLP library for dealing with poses, making it easier to deal with.
-
-#### [MediaPipe Holistic Hand Landmarker](https://developers.google.com/mediapipe/solutions/vision/hand_landmarker)
-
-Many papers use/cite this one. But it seems it's now a "legacy" item, no longer supported.
 
 ### Needs more effort to get running
 
