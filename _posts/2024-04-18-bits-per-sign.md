@@ -112,7 +112,8 @@ Google N-Gram viewer lets you look at word frequencies over time.
 * [kolmogorov,gauss](https://books.google.com/ngrams/graph?content=kolmogorov%2Cgauss&year_start=1800&year_end=2019&corpus=en-2019&smoothing=3&case_insensitive=true) shows that Gauss dwarfs Kolmogorov. Looking at the number of zeroes, it seems Gauss is mentioned about 10x as much.
 
 ### Citations
-
+<!-- Get code block to render by disabling Liquid https://talk.jekyllrb.com/t/code-block-is-improperly-handled-and-generates-liquid-syntax-error/7599 -->
+{% raw %}
 ```bibtex
 @article{shannonPredictionEntropyPrinted1951,
   title = {Prediction and Entropy of Printed {{English}}},
@@ -290,6 +291,8 @@ Google N-Gram viewer lets you look at word frequencies over time.
 
 
 ```
+
+{% endraw %}
 
 ## Changelog
 
